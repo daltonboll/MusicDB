@@ -30,6 +30,8 @@ gem 'annotate'
 gem 'devise'
 # Use Font-Awesome
 gem 'font-awesome-rails'
+# For making easy http connections
+gem 'httparty'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
