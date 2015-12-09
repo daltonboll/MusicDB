@@ -11,5 +11,4 @@
 
 class Label < ActiveRecord::Base
   has_many :artists # A Label has many Artists
-
 end

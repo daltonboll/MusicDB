@@ -16,7 +16,6 @@
 
 class Artist < ActiveRecord::Base
   belongs_to :label # An Artist belongs to a Label
-  has_many :songs # An Artist has many songs
-  has_many :albums # An Artist has many albums
-
+  has_many :songs # An Artist has many Songs
+  has_many :albums # An Artist has many Albums
 end

@@ -16,4 +16,5 @@
 
 class Song < ActiveRecord::Base
   belongs_to :artist # A Song belongs to an Artist
+  belongs_to :album # A slong belongs to an Album
 end
