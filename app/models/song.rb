@@ -15,4 +15,5 @@
 #
 
 class Song < ActiveRecord::Base
+  belongs_to :artist # A Song belongs to an Artist
 end
