@@ -12,6 +12,8 @@
 #  amountSold          :integer
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
+#  artists_id          :integer
+#  albums_id           :integer
 #
 
 class Song < ActiveRecord::Base

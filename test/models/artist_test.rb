@@ -12,6 +12,7 @@
 #  debutYear   :integer
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  labels_id   :integer
 #
 
 require 'test_helper'
