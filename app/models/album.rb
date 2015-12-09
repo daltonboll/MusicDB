@@ -14,4 +14,5 @@
 #
 
 class Album < ActiveRecord::Base
+  belongs_to :artist # An Album belongs to an Artist
 end

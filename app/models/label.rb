@@ -10,6 +10,6 @@
 #
 
 class Label < ActiveRecord::Base
-  has_many :artists # Labels have many Artists
+  has_many :artists # A Label has many Artists
 
 end
