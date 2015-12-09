@@ -1,5 +1,5 @@
 class AddAlbumRefsToSong < ActiveRecord::Migration
   def change
-    add_reference :songs, :albums, index: true
+    add_reference :songs, :album, index: true
   end
 end

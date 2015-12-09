@@ -25,10 +25,10 @@ ActiveRecord::Schema.define(version: 20151209004955) do
     t.integer  "numberOfSingles"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
-    t.integer  "artists_id"
+    t.integer  "artist_id"
   end
 
-  add_index "albums", ["artists_id"], name: "index_albums_on_artists_id", using: :btree
+  add_index "albums", ["artist_id"], name: "index_albums_on_artist_id", using: :btree
 
   create_table "artists", force: :cascade do |t|
     t.text     "name"
@@ -40,10 +40,10 @@ ActiveRecord::Schema.define(version: 20151209004955) do
     t.integer  "debutYear"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.integer  "labels_id"
+    t.integer  "label_id"
   end
 
-  add_index "artists", ["labels_id"], name: "index_artists_on_labels_id", using: :btree
+  add_index "artists", ["label_id"], name: "index_artists_on_label_id", using: :btree
 
   create_table "awards", force: :cascade do |t|
     t.text     "title"
@@ -51,12 +51,12 @@ ActiveRecord::Schema.define(version: 20151209004955) do
     t.date     "dateAwarded"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.integer  "artists_id"
-    t.integer  "albums_id"
+    t.integer  "artist_id"
+    t.integer  "album_id"
   end
 
-  add_index "awards", ["albums_id"], name: "index_awards_on_albums_id", using: :btree
-  add_index "awards", ["artists_id"], name: "index_awards_on_artists_id", using: :btree
+  add_index "awards", ["album_id"], name: "index_awards_on_album_id", using: :btree
+  add_index "awards", ["artist_id"], name: "index_awards_on_artist_id", using: :btree
 
   create_table "labels", force: :cascade do |t|
     t.text     "name"
@@ -75,12 +75,12 @@ ActiveRecord::Schema.define(version: 20151209004955) do
     t.integer  "amountSold"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
-    t.integer  "artists_id"
-    t.integer  "albums_id"
+    t.integer  "artist_id"
+    t.integer  "album_id"
   end
 
-  add_index "songs", ["albums_id"], name: "index_songs_on_albums_id", using: :btree
-  add_index "songs", ["artists_id"], name: "index_songs_on_artists_id", using: :btree
+  add_index "songs", ["album_id"], name: "index_songs_on_album_id", using: :btree
+  add_index "songs", ["artist_id"], name: "index_songs_on_artist_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
