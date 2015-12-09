@@ -21,3 +21,6 @@ database.yml
 # Ignore Environment Variables
 .env
 variables.env
+
+# Ignore BFG cleanup file
+bfg-1.12.7.jar
