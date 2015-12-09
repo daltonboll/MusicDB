@@ -55,7 +55,7 @@ Artist.all.each do |artist|
   artist.albums.each do |album|
     number_of_songs = rand(8..14)
     number_of_songs.times do |i|
-      title = @song_titles[@num_song_titles - 1]
+      title = @song_titles[rand(0..(@num_song_titles - 1))]
       hot100Peak = rand(1..100)
       radioPeak = rand(10000000..120000000)
       spotifyStreams = rand(10000000..220000000)
