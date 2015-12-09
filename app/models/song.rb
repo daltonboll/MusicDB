@@ -1,2 +1,18 @@
+# == Schema Information
+#
+# Table name: songs
+#
+#  id                  :integer          not null, primary key
+#  title               :text
+#  billboardHot100Peak :integer
+#  radioPlayPeak       :integer
+#  spotifyStreams      :integer
+#  hasMusicVideo       :boolean
+#  isSingle            :boolean
+#  amountSold          :integer
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
+#
+
 class Song < ActiveRecord::Base
 end
