@@ -28,10 +28,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'annotate'
 # For user authentication
 gem 'devise'
-# Use Bootstrap for stylesheets
-gem 'bootstrap-sass'
-# For Bootstrap: automatically add browser prefixes
-gem 'autoprefixer-rails'
 # Use Font-Awesome
 gem 'font-awesome-rails'
 
