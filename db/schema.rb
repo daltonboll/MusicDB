@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151209003357) do
+ActiveRecord::Schema.define(version: 20151209003924) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,7 +51,12 @@ ActiveRecord::Schema.define(version: 20151209003357) do
     t.date     "dateAwarded"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "artists_id"
+    t.integer  "albums_id"
   end
+
+  add_index "awards", ["albums_id"], name: "index_awards_on_albums_id", using: :btree
+  add_index "awards", ["artists_id"], name: "index_awards_on_artists_id", using: :btree
 
   create_table "labels", force: :cascade do |t|
     t.text     "name"

@@ -12,4 +12,5 @@
 
 class Award < ActiveRecord::Base
   belongs_to :artist # An Award belongs to an Artist
+  belongs_to :album # An Award belongs to an Album
 end

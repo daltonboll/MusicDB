@@ -16,4 +16,5 @@
 class Album < ActiveRecord::Base
   belongs_to :artist # An Album belongs to an Artist
   has_many :songs # An Album has many Songs
+  has_many :awards # An Album has many Awards
 end
