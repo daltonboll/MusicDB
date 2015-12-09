@@ -13,7 +13,7 @@
 
   <tbody>
     <% @awards.each do |award| %>
-      <tr>
+      <tr class="clickable-row" data-href="<%= award_url(award) %>">
         <td><%= award.title %></td>
         <td><%= award.event %></td>
         <td><%= award.dateAwarded %></td>

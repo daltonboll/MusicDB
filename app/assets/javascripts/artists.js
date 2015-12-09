@@ -3,5 +3,8 @@
 
 // Process the Artists Table with DataTables
 $(document).ready( function () {
-    $('#artists-table').DataTable();
+    $('#artists-table').DataTable( {
+    	scrollY: 400,
+    	paging: false
+    } );
 } );

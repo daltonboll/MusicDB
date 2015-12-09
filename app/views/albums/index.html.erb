@@ -16,7 +16,7 @@
 
   <tbody>
     <% @albums.each do |album| %>
-      <tr>
+      <tr class="clickable-row" data-href="<%= album_url(album) %>">
         <td><%= album.title %></td>
         <td><%= album.releaseDate %></td>
         <td><%= album.genre %></td>

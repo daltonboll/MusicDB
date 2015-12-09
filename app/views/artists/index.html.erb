@@ -17,7 +17,7 @@
 
   <tbody>
     <% @artists.each do |artist| %>
-      <tr>
+      <tr class="clickable-row" data-href="<%= artist_url(artist) %>">
         <td><%= artist.name %></td>
         <td><%= artist.age %></td>
         <td><%= artist.homeCountry %></td>

@@ -17,7 +17,7 @@
 
   <tbody>
     <% @songs.each do |song| %>
-      <tr>
+      <tr class="clickable-row" data-href="<%= song_url(song) %>">
         <td><%= song.title %></td>
         <td><%= song.billboardHot100Peak %></td>
         <td><%= song.radioPlayPeak %></td>

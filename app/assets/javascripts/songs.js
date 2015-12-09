@@ -3,5 +3,8 @@
 
 // Process the Songs Table with DataTables
 $(document).ready( function () {
-    $('#songs-table').DataTable();
+    $('#songs-table').DataTable( {
+    	scrollY: 400,
+    	paging: false,
+    } );
 } );

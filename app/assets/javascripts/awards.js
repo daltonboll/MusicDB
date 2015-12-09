@@ -3,5 +3,8 @@
 
 // Process the Awards Table with DataTables
 $(document).ready( function () {
-    $('#awards-table').DataTable();
+    $('#awards-table').DataTable( {
+    	scrollY: 400,
+    	paging: false
+    } );
 } );

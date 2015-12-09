@@ -13,3 +13,11 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$(document).ready(function($) {
+    $(".clickable-row").click(function() {
+    	url = $(this).data("href");
+    	console.log("The URL is: " + url)
+        window.document.location = url;
+    });
+});

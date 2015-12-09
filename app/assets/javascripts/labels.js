@@ -3,5 +3,8 @@
 
 // Process the Labels Table with DataTables
 $(document).ready( function () {
-    $('#labels-table').DataTable();
+    $('#labels-table').DataTable( {
+    	scrollY: 400,
+    	paging: false
+    } );
 } );

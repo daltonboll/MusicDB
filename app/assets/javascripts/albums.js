@@ -3,5 +3,8 @@
 
 // Process the Albums Table with DataTables
 $(document).ready( function () {
-    $('#albums-table').DataTable();
+    $('#albums-table').DataTable( {
+    	scrollY: 400,
+    	paging: false
+    } );
 } );

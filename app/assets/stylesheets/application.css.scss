@@ -19,6 +19,7 @@
 body {
 	margin: 0px;
 	padding: 0px;
+	font-family: 'Roboto', sans-serif;
 }
 
 .content {
@@ -31,4 +32,25 @@ body {
 
 nav {
 	margin-right: 10px;
+}
+
+tr {
+	background-color: #FFFFFF;
+	color: black;
+}
+
+td {
+	color: black;
+}
+
+.odd td {
+	background-color: #F9F9F9;
+}
+
+.even td {
+	background-color: #FFFFFF;
+}
+
+.clickable-row:hover td {
+	background-color: #dbecfc;
 }

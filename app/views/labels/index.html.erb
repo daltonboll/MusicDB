@@ -12,7 +12,7 @@
 
   <tbody>
     <% @labels.each do |label| %>
-      <tr>
+      <tr class="clickable-row" data-href="<%= label_url(label) %>">
         <td><%= label.name %></td>
         <td><%= label.location %></td>
       </tr>
