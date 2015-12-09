@@ -32,6 +32,8 @@ gem 'devise'
 gem 'bootstrap-sass'
 # For Bootstrap: automatically add browser prefixes
 gem 'autoprefixer-rails'
+# Use Font-Awesome
+gem 'font-awesome-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
