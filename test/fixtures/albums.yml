@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyText
+  releaseDate: 
+  genre: MyText
+  amountSold: 
+  billboard200Peak: 
+  numberOfSingles: 
+
+two:
+  title: MyText
+  releaseDate: 
+  genre: MyText
+  amountSold: 
+  billboard200Peak: 
+  numberOfSingles: 

@@ -1,0 +1,45 @@
+<%= form_for(@artist) do |f| %>
+  <% if @artist.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@artist.errors.count, "error") %> prohibited this artist from being saved:</h2>
+
+      <ul>
+      <% @artist.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_area :name %>
+  </div>
+  <div class="field">
+    <%= f.label :age %><br>
+    <%= f.text_field :age %>
+  </div>
+  <div class="field">
+    <%= f.label :homeCountry %><br>
+    <%= f.text_area :homeCountry %>
+  </div>
+  <div class="field">
+    <%= f.label :homeState %><br>
+    <%= f.text_area :homeState %>
+  </div>
+  <div class="field">
+    <%= f.label :gender %><br>
+    <%= f.text_area :gender %>
+  </div>
+  <div class="field">
+    <%= f.label :race %><br>
+    <%= f.text_area :race %>
+  </div>
+  <div class="field">
+    <%= f.label :debutYear %><br>
+    <%= f.text_field :debutYear %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -11,9 +11,59 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20151209000900) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "albums", force: :cascade do |t|
+    t.text     "title"
+    t.integer  "releaseDate"
+    t.text     "genre"
+    t.integer  "amountSold"
+    t.integer  "billboard200Peak"
+    t.integer  "numberOfSingles"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  create_table "artists", force: :cascade do |t|
+    t.text     "name"
+    t.integer  "age"
+    t.text     "homeCountry"
+    t.text     "homeState"
+    t.text     "gender"
+    t.text     "race"
+    t.integer  "debutYear"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "awards", force: :cascade do |t|
+    t.text     "title"
+    t.text     "event"
+    t.date     "dateAwarded"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "labels", force: :cascade do |t|
+    t.text     "name"
+    t.text     "location"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "songs", force: :cascade do |t|
+    t.text     "title"
+    t.integer  "billboardHot100Peak"
+    t.integer  "radioPlayPeak"
+    t.integer  "spotifyStreams"
+    t.boolean  "hasMusicVideo"
+    t.boolean  "isSingle"
+    t.integer  "amountSold"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
 
 end

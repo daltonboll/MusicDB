@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyText
+  age: 
+  homeCountry: MyText
+  homeState: MyText
+  gender: MyText
+  race: MyText
+  debutYear: 
+
+two:
+  name: MyText
+  age: 
+  homeCountry: MyText
+  homeState: MyText
+  gender: MyText
+  race: MyText
+  debutYear: 

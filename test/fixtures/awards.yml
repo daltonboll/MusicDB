@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyText
+  event: MyText
+  dateAwarded: 2015-12-08
+
+two:
+  title: MyText
+  event: MyText
+  dateAwarded: 2015-12-08

@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyText
+  billboardHot100Peak: 
+  radioPlayPeak: 
+  spotifyStreams: 
+  hasMusicVideo: false
+  isSingle: false
+  amountSold: 
+
+two:
+  title: MyText
+  billboardHot100Peak: 
+  radioPlayPeak: 
+  spotifyStreams: 
+  hasMusicVideo: false
+  isSingle: false
+  amountSold: 
