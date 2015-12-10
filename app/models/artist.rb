@@ -108,6 +108,16 @@ class Artist < ActiveRecord::Base
     end
   end
 
+  def self.delete_artists_with_no_albums
+    artists = Artist.all
+
+    artists.each do |artist|
+      if artist.albums.empty?
+        artist.destroy
+      end
+    end
+  end
+
   def get_truncated_name
     name = self.name
 

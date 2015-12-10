@@ -72,7 +72,7 @@
     <tbody>
       <% @artist.albums.each do |album| %>
         <tr class="clickable-row" data-href="<%= album_url(album) %>">
-          <td><%= album.title %></td>
+          <td><%= album.get_truncated_title %></td>
           <td><%= album.get_release_date %></td>
           <td><%= album.get_genres_for_bio %></td>
           <td><%= album.get_popularity %></td>

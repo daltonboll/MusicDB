@@ -154,4 +154,15 @@ class Album < ActiveRecord::Base
     end
   end
 
+  def get_truncated_title
+    title = self.title
+
+    if title.size > 55
+      truncation = title[0,55] + "..."
+      return truncation
+    else
+      return title
+    end
+  end
+
 end
