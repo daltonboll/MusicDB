@@ -87,4 +87,28 @@ class Artist < ActiveRecord::Base
     end
   end
 
+  def get_truncated_name
+    name = self.name
+
+    if name.size > 32
+      truncation = name[0,32] + "..."
+      return truncation
+    else
+      return name
+    end
+  end
+
+  def get_genres
+    genres = self.genres
+    genre_text = ""
+
+    genres.each do |genre|
+      genre_text += genre.titleize + ", "
+    end
+
+    len = genre_text.size
+    genre_text = genre_text[0, len-2]
+    return genre_text
+  end
+
 end

@@ -46,8 +46,8 @@ class Album < ActiveRecord::Base
         album_hash = { title: title, genres: genres, images: images, spotifyID: spotifyID, spotifyArtistID: spotifyArtistID, popularity: popularity, releaseDate: releaseDate, albumType: albumType, releaseDatePrecision: releaseDatePrecision }
         album = Album.create(album_hash)
         album.save
-        album.artist = artist
-        album.save
+        artist.albums << album
+        artist.save
       else 
         puts "WE HAVE NO ARTIST WITH ID #{spotifyArtistID}"
       end

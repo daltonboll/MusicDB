@@ -17,10 +17,10 @@
   <tbody>
     <% @artists.each do |artist| %>
       <tr class="clickable-row" data-href="<%= artist_url(artist) %>">
-        <td><%= artist.name %></td>
+        <td><%= artist.get_truncated_name %></td>
         <td><%= artist.age %></td>
         <td><%= artist.popularity %></td>
-        <td><%= artist.genres %></td>
+        <td><%= artist.get_genres %></td>
         <td><%= artist.gender %></td>
         <td><%= artist.debutYear %></td>
       </tr>
