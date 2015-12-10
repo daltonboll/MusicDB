@@ -53,7 +53,7 @@
 
 <p>
   <strong>Spotify ID:</strong>
-  <%= @artist.get_spotify_id %>
+  <%= link_to(@artist.get_spotify_id, @artist.get_spotify_url, target: "_blank") %>
 </p>
 
 <h2>Albums (<%= @artist.albums.size %>)</h2>
@@ -92,6 +92,7 @@
         <th>Popularity</th>
         <th>Album</th>
         <th>Release Date</th>
+        <th>Duration</th>
         <th>Explicit</th>
       </tr>
     </thead>
@@ -103,6 +104,7 @@
           <td><%= song.get_popularity %></td>
           <td><%= song.album.title %></td>
           <td><%= song.get_release_date %></td>
+          <td><%= song.get_duration %></td>
           <td><%= song.explicit %></td>
         </tr>
       <% end %>

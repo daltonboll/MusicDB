@@ -123,4 +123,35 @@ class Album < ActiveRecord::Base
     end
   end
 
+  def get_album_type
+    type = self.albumType
+
+    if type.nil?
+      return "Album"
+    else
+      return type.titleize
+    end
+  end
+
+  def get_spotify_id
+    spotify_id = self.spotifyID
+
+    if spotify_id.nil?
+      return "N/a"
+    else
+      return spotify_id
+    end
+  end
+
+  def get_spotify_url
+    base = "https://play.spotify.com/album/"
+    spotify_id = self.spotifyID
+
+    if spotify_id.nil?
+      return "#"
+    else
+      return base + self.spotifyID
+    end
+  end
+
 end

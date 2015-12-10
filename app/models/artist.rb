@@ -236,6 +236,15 @@ class Artist < ActiveRecord::Base
     end
   end
 
+  def get_spotify_url
+    base = "https://play.spotify.com/artist/"
+    spotify_id = self.spotifyID
 
+    if spotify_id.nil?
+      return "#"
+    else
+      return base + self.spotifyID
+    end
+  end
 
 end

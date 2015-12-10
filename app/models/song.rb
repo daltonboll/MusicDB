@@ -82,4 +82,76 @@ class Song < ActiveRecord::Base
     end
   end
 
+  def get_track_number
+    track_number = self.trackNumber
+
+    if track_number.size.nil?
+      return 0
+    else
+      return track_number
+    end
+  end
+
+  def get_spotify_id
+    spotify_id = self.spotifyID
+
+    if spotify_id.nil?
+      return "N/a"
+    else
+      return spotify_id
+    end
+  end
+
+  def get_popularity
+    popularity = self.popularity
+
+    if popularity.nil?
+      return 0
+    else
+      return popularity
+    end
+  end
+
+  def get_disc_number
+    disc_number = self.discNumber
+
+    if disc_number.nil?
+      return 1
+    else
+      return disc_number
+    end
+  end
+
+  def get_explicit
+    explicit = self.explicit
+
+    if explicit
+      return "Yes"
+    else
+      return "No"
+    end
+  end
+
+  def get_spotify_url
+    base = "https://play.spotify.com/track/"
+    spotify_id = self.spotifyID
+
+    if spotify_id.nil?
+      return "#"
+    else
+      return base + self.spotifyID
+    end
+  end
+
+  def get_duration
+    duration = self.durationMS
+
+    if duration.nil?
+      return "?"
+    else
+      # TODO: convert this to readable format
+      return duration 
+    end
+  end
+
 end

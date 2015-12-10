@@ -1,34 +1,65 @@
 <p id="notice"><%= notice %></p>
 
+<h1>Album: <%= @album.title %> by <%= link_to(@album.artist.name, artist_url(@album.artist)) %></h1>
+<div class="album-images">
+    <img class="album-image" src="<%= @album.images.first %>"/>
+</div>
+
+<h2>Basic Info</h2>
 <p>
-  <strong>Title:</strong>
-  <%= @album.title %>
+  <strong>Popularity:</strong>
+  <%= @album.get_popularity %>
 </p>
 
 <p>
-  <strong>Releasedate:</strong>
-  <%= @album.releaseDate %>
+  <strong>Release Date:</strong>
+  <%= @album.get_release_date %>
 </p>
 
 <p>
-  <strong>Genre:</strong>
-  <%= @album.genre %>
+  <strong>Genres:</strong>
+  <%= @album.get_genres_for_bio %>
 </p>
 
 <p>
-  <strong>Amountsold:</strong>
-  <%= @album.amountSold %>
+  <strong>Album Type:</strong>
+  <%= @album.get_album_type %>
 </p>
 
 <p>
-  <strong>Billboard200peak:</strong>
-  <%= @album.billboard200Peak %>
+  <strong>Spotify ID:</strong>
+  <%= link_to(@album.get_spotify_id, @album.get_spotify_url, target: "_blank") %>
 </p>
 
-<p>
-  <strong>Numberofsingles:</strong>
-  <%= @album.numberOfSingles %>
-</p>
+<h2>Songs (<%= @album.songs.size %>)</h2>
+<% if @album.songs.size > 0 %>
+  <table id="songs-table">
+    <thead>
+      <tr>
+        <th>Track #</th>
+        <th>Title</th>
+        <th>Popularity</th>
+        <th>Explicit</th>
+        <th>Duration</th>
+        <th>Disc #</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @songs.each do |song| %>
+        <tr class="clickable-row" data-href="<%= song_url(song) %>">
+          <td><%= song.get_track_number %></td>
+          <td><%= song.title %></td>
+          <td><%= song.get_popularity %></td>
+          <td><%= song.get_explicit %></td>
+          <td><%= song.get_duration %></td>
+          <td><%= song.get_disc_number %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
+
 
 <%= link_to 'Edit', edit_album_path(@album) %> |
 <%= link_to 'Back', albums_path %>

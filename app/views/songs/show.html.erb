@@ -1,39 +1,38 @@
 <p id="notice"><%= notice %></p>
 
+<h1>Song: <%= @song.title %> by <%= link_to(@song.artist.name, artist_url(@song.artist)) %></h1>
+
+<div class="album-images">
+    <img class="album-image" src="<%= @song.album.images.first %>"/>
+</div>
+
+<h2>Basic Info</h2>
 <p>
-  <strong>Title:</strong>
-  <%= @song.title %>
+  <strong>Popularity:</strong>
+  <%= @song.get_popularity %>
 </p>
 
 <p>
-  <strong>Billboardhot100peak:</strong>
-  <%= @song.billboardHot100Peak %>
+  <strong>Album Title:</strong>
+  <%= link_to(@song.album.get_release_date, @song.album) %>
 </p>
 
 <p>
-  <strong>Radioplaypeak:</strong>
-  <%= @song.radioPlayPeak %>
+  <strong>Release Date:</strong>
+  <%= @song.album.get_release_date %>
 </p>
 
 <p>
-  <strong>Spotifystreams:</strong>
-  <%= @song.spotifyStreams %>
+  <strong>Duration:</strong>
+  <%= @song.get_duration %>
 </p>
 
 <p>
-  <strong>Hasmusicvideo:</strong>
-  <%= @song.hasMusicVideo %>
+  <strong>Spotify ID:</strong>
+  <%= link_to(@song.get_spotify_id, @song.get_spotify_url, target: "_blank") %>
 </p>
 
-<p>
-  <strong>Issingle:</strong>
-  <%= @song.isSingle %>
-</p>
 
-<p>
-  <strong>Amountsold:</strong>
-  <%= @song.amountSold %>
-</p>
 
 <%= link_to 'Edit', edit_song_path(@song) %> |
 <%= link_to 'Back', songs_path %>
