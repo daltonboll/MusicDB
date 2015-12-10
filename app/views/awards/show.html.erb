@@ -1,9 +1,7 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @award.title %>
-</p>
+<h1>Award: <%= @award.title %></h1>
+<h2>Basic Info</h2>
 
 <p>
   <strong>Event:</strong>
@@ -11,8 +9,17 @@
 </p>
 
 <p>
-  <strong>Dateawarded:</strong>
-  <%= @award.dateAwarded %>
+  <strong>Artist:</strong>
+  <% if not @award.artist.nil? %>
+    <%= link_to(@award.artist.name, artist_url(@award.artist)) %>
+  <% else %>
+    N/a
+  <% end %>
+</p>
+
+<p>
+  <strong>Year Awarded:</strong>
+  <%= @award.yearAwarded %>
 </p>
 
 <%= link_to 'Edit This Award', edit_award_path(@award) %> |

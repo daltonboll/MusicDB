@@ -1,13 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Awards</h1>
+<h1>All Awards</h1>
 
 <table id="awards-table">
   <thead>
     <tr>
       <th>Title</th>
       <th>Event</th>
-      <th>Date Awarded</th>
+      <th>Artist</th>
+      <th>Year Awarded</th>
     </tr>
   </thead>
 
@@ -16,7 +17,12 @@
       <tr class="clickable-row" data-href="<%= award_url(award) %>">
         <td><%= award.title %></td>
         <td><%= award.event %></td>
-        <td><%= award.dateAwarded %></td>
+        <% if not award.artist.nil? %>
+          <td><%= link_to(award.artist.name, artist_url(award.artist)) %></td>
+        <% else %>
+          <td>N/a</td>
+        <% end %>
+        <td><%= award.yearAwarded %></td>
       </tr>
     <% end %>
   </tbody>

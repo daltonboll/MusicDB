@@ -71,4 +71,14 @@ class Award < ActiveRecord::Base
     end
   end
 
+  def get_artist
+    artist = self.artist
+
+    if artist.nil?
+      return "N/a"
+    else
+      return artist.name
+    end
+  end
+
 end
