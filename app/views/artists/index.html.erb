@@ -11,6 +11,7 @@
       <th>Gender</th>
       <th>Debut Year</th>
       <th>Label</th>
+      <th>Awards</th>
       <th>Associated Genres</th>
     </tr>
   </thead>
@@ -24,6 +25,7 @@
         <td><%= artist.gender %></td>
         <td><%= artist.debutYear %></td>
         <td><%= artist.label.name %></td>
+        <td><%= artist.awards.size %></td>
         <td><%= artist.get_genres %></td>
       </tr>
     <% end %>
