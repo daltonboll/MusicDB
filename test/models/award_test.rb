@@ -8,8 +8,8 @@
 #  dateAwarded :date
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
-#  artists_id  :integer
-#  albums_id   :integer
+#  artist_id   :integer
+#  album_id    :integer
 #
 
 require 'test_helper'

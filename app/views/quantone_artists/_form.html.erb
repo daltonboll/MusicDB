@@ -1,0 +1,81 @@
+<%= form_for(@quantone_artist) do |f| %>
+  <% if @quantone_artist.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@quantone_artist.errors.count, "error") %> prohibited this quantone_artist from being saved:</h2>
+
+      <ul>
+      <% @quantone_artist.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :quantoneID %><br>
+    <%= f.text_field :quantoneID %>
+  </div>
+  <div class="field">
+    <%= f.label :stageName %><br>
+    <%= f.text_field :stageName %>
+  </div>
+  <div class="field">
+    <%= f.label :artistType %><br>
+    <%= f.text_field :artistType %>
+  </div>
+  <div class="field">
+    <%= f.label :gender %><br>
+    <%= f.text_field :gender %>
+  </div>
+  <div class="field">
+    <%= f.label :imageId %><br>
+    <%= f.text_field :imageId %>
+  </div>
+  <div class="field">
+    <%= f.label :spotifyId %><br>
+    <%= f.text_field :spotifyId %>
+  </div>
+  <div class="field">
+    <%= f.label :birthDate %><br>
+    <%= f.text_field :birthDate %>
+  </div>
+  <div class="field">
+    <%= f.label :birthPlace %><br>
+    <%= f.text_field :birthPlace %>
+  </div>
+  <div class="field">
+    <%= f.label :deathDate %><br>
+    <%= f.text_field :deathDate %>
+  </div>
+  <div class="field">
+    <%= f.label :deathPlace %><br>
+    <%= f.text_field :deathPlace %>
+  </div>
+  <div class="field">
+    <%= f.label :legalName %><br>
+    <%= f.text_field :legalName %>
+  </div>
+  <div class="field">
+    <%= f.label :age %><br>
+    <%= f.number_field :age %>
+  </div>
+  <div class="field">
+    <%= f.label :homeCountry %><br>
+    <%= f.text_field :homeCountry %>
+  </div>
+  <div class="field">
+    <%= f.label :homeRegion %><br>
+    <%= f.text_field :homeRegion %>
+  </div>
+  <div class="field">
+    <%= f.label :race %><br>
+    <%= f.text_field :race %>
+  </div>
+  <div class="field">
+    <%= f.label :debutYear %><br>
+    <%= f.number_field :debutYear %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

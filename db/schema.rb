@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151209004955) do
+ActiveRecord::Schema.define(version: 20151209224400) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,6 +63,27 @@ ActiveRecord::Schema.define(version: 20151209004955) do
     t.text     "location"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "quantone_artists", force: :cascade do |t|
+    t.string   "quantoneID"
+    t.string   "stageName"
+    t.string   "artistType"
+    t.string   "gender"
+    t.string   "imageID"
+    t.string   "spotifyID"
+    t.integer  "birthYear"
+    t.string   "birthPlace"
+    t.integer  "deathYear"
+    t.string   "deathPlace"
+    t.string   "legalName"
+    t.integer  "age"
+    t.string   "homeCountry"
+    t.string   "homeRegion"
+    t.string   "race"
+    t.integer  "debutYear"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "songs", force: :cascade do |t|

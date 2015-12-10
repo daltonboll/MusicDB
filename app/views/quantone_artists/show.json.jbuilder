@@ -1,0 +1,1 @@
+json.extract! @quantone_artist, :id, :quantoneID, :stageName, :artistType, :gender, :imageId, :spotifyId, :birthDate, :birthPlace, :deathDate, :deathPlace, :legalName, :age, :homeCountry, :homeRegion, :race, :debutYear, :created_at, :updated_at

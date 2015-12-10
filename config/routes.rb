@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :quantone_artists
   devise_for :users
   resources :awards
   resources :albums

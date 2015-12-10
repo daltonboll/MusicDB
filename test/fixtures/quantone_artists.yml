@@ -1,0 +1,62 @@
+# == Schema Information
+#
+# Table name: quantone_artists
+#
+#  id          :integer          not null, primary key
+#  quantoneID  :string
+#  stageName   :string
+#  artistType  :string
+#  gender      :string
+#  imageId     :string
+#  spotifyId   :string
+#  birthDate   :string
+#  birthPlace  :string
+#  deathDate   :string
+#  deathPlace  :string
+#  legalName   :string
+#  age         :integer
+#  homeCountry :string
+#  homeRegion  :string
+#  race        :string
+#  debutYear   :integer
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  quantoneID: MyString
+  stageName: MyString
+  artistType: MyString
+  gender: MyString
+  imageId: MyString
+  spotifyId: MyString
+  birthDate: MyString
+  birthPlace: MyString
+  deathDate: MyString
+  deathPlace: MyString
+  legalName: MyString
+  age: 1
+  homeCountry: MyString
+  homeRegion: MyString
+  race: MyString
+  debutYear: 1
+
+two:
+  quantoneID: MyString
+  stageName: MyString
+  artistType: MyString
+  gender: MyString
+  imageId: MyString
+  spotifyId: MyString
+  birthDate: MyString
+  birthPlace: MyString
+  deathDate: MyString
+  deathPlace: MyString
+  legalName: MyString
+  age: 1
+  homeCountry: MyString
+  homeRegion: MyString
+  race: MyString
+  debutYear: 1

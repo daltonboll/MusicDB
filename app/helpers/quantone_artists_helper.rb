@@ -1,0 +1,2 @@
+module QuantoneArtistsHelper
+end

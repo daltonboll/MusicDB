@@ -1,0 +1,57 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Quantone Artists</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Quantoneid</th>
+      <th>Stagename</th>
+      <th>Artisttype</th>
+      <th>Gender</th>
+      <th>Imageid</th>
+      <th>Spotifyid</th>
+      <th>Birthdate</th>
+      <th>Birthplace</th>
+      <th>Deathdate</th>
+      <th>Deathplace</th>
+      <th>Legalname</th>
+      <th>Age</th>
+      <th>Homecountry</th>
+      <th>Homeregion</th>
+      <th>Race</th>
+      <th>Debutyear</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @quantone_artists.each do |quantone_artist| %>
+      <tr>
+        <td><%= quantone_artist.quantoneID %></td>
+        <td><%= quantone_artist.stageName %></td>
+        <td><%= quantone_artist.artistType %></td>
+        <td><%= quantone_artist.gender %></td>
+        <td><%= quantone_artist.imageId %></td>
+        <td><%= quantone_artist.spotifyId %></td>
+        <td><%= quantone_artist.birthDate %></td>
+        <td><%= quantone_artist.birthPlace %></td>
+        <td><%= quantone_artist.deathDate %></td>
+        <td><%= quantone_artist.deathPlace %></td>
+        <td><%= quantone_artist.legalName %></td>
+        <td><%= quantone_artist.age %></td>
+        <td><%= quantone_artist.homeCountry %></td>
+        <td><%= quantone_artist.homeRegion %></td>
+        <td><%= quantone_artist.race %></td>
+        <td><%= quantone_artist.debutYear %></td>
+        <td><%= link_to 'Show', quantone_artist %></td>
+        <td><%= link_to 'Edit', edit_quantone_artist_path(quantone_artist) %></td>
+        <td><%= link_to 'Destroy', quantone_artist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Quantone artist', new_quantone_artist_path %>
