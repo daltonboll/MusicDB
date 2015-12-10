@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Spotify Artists</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Spotifyid</th>
+      <th>Images</th>
+      <th>Popularity</th>
+      <th>Genres</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @spotify_artists.each do |spotify_artist| %>
+      <tr>
+        <td><%= spotify_artist.name %></td>
+        <td><%= spotify_artist.spotifyID %></td>
+        <td><%= spotify_artist.images %></td>
+        <td><%= spotify_artist.popularity %></td>
+        <td><%= spotify_artist.genres %></td>
+        <td><%= link_to 'Show', spotify_artist %></td>
+        <td><%= link_to 'Edit', edit_spotify_artist_path(spotify_artist) %></td>
+        <td><%= link_to 'Destroy', spotify_artist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Spotify artist', new_spotify_artist_path %>

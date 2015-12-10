@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :spotify_artists
   resources :quantone_artists
   devise_for :users
   resources :awards

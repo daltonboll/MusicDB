@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @spotify_artist.name %>
+</p>
+
+<p>
+  <strong>Spotifyid:</strong>
+  <%= @spotify_artist.spotifyID %>
+</p>
+
+<p>
+  <strong>Images:</strong>
+  <%= @spotify_artist.images %>
+</p>
+
+<p>
+  <strong>Popularity:</strong>
+  <%= @spotify_artist.popularity %>
+</p>
+
+<p>
+  <strong>Genres:</strong>
+  <%= @spotify_artist.genres %>
+</p>
+
+<%= link_to 'Edit', edit_spotify_artist_path(@spotify_artist) %> |
+<%= link_to 'Back', spotify_artists_path %>
