@@ -8,3 +8,10 @@ $(document).ready( function () {
     	paging: false
     } );
 } );
+
+$(document).ready( function () {
+    $('#artist-awards-table').DataTable( {
+    	scrollY: 400,
+    	paging: false
+    } );
+} );

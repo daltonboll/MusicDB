@@ -95,5 +95,28 @@
   </table>
 <% end %>
 
+<h2>Awards (<%= @artist.awards.size %>)</h2>
+<% if @artist.awards.size > 0 %>
+  <table id="artist-awards-table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Event</th>
+        <th>Year Awarded</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @artist.awards.each do |award| %>
+        <tr class="clickable-row" data-href="<%= award_url(award) %>">
+          <td><%= award.title %></td>
+          <td><%= award.event %></td>
+          <td><%= award.yearAwarded %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
+
 <%= link_to 'Edit This Artist', edit_artist_path(@artist) %> |
 <%= link_to 'Back', artists_path %>
