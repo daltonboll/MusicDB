@@ -21,9 +21,9 @@
 
 class Artist < ActiveRecord::Base
   belongs_to :label # An Artist belongs to a Label
-  has_many :songs # An Artist has many Songs
-  has_many :albums # An Artist has many Albums
-  has_many :awards # An Artist has many Awards
+  has_many :songs, dependent: :destroy # An Artist has many Songs
+  has_many :albums, dependent: :destroy # An Artist has many Albums
+  has_many :awards, dependent: :destroy # An Artist has many Awards
   validates :name, uniqueness: true
   validates_format_of :name, :with => /\A[A-Za-z0-9 ]*\z/ # must be in english
 

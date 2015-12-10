@@ -23,8 +23,8 @@
 
 class Album < ActiveRecord::Base
   belongs_to :artist # An Album belongs to an Artist
-  has_many :songs # An Album has many Songs
-  has_many :awards # An Album has many Awards
+  has_many :songs, dependent: :destroy # An Album has many Songs
+  has_many :awards, dependent: :destroy # An Album has many Awards
   validates :spotifyID, uniqueness: true
 
   def self.convert_spotify_data

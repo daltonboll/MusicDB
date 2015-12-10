@@ -6,12 +6,12 @@
   <thead>
     <tr>
       <th>Title</th>
-      <th>Billboardhot100peak</th>
-      <th>Radioplaypeak</th>
-      <th>Spotifystreams</th>
-      <th>Hasmusicvideo</th>
-      <th>Issingle</th>
-      <th>Amountsold</th>
+      <th>Popularity</th>
+      <th>Artist</th>
+      <th>Album</th>
+      <th>Release Date</th>
+      <th>Duration</th>
+      <th>Explicit</th>
     </tr>
   </thead>
 
@@ -19,12 +19,12 @@
     <% @songs.each do |song| %>
       <tr class="clickable-row" data-href="<%= song_url(song) %>">
         <td><%= song.title %></td>
-        <td><%= song.billboardHot100Peak %></td>
-        <td><%= song.radioPlayPeak %></td>
-        <td><%= song.spotifyStreams %></td>
-        <td><%= song.hasMusicVideo %></td>
-        <td><%= song.isSingle %></td>
-        <td><%= song.amountSold %></td>
+        <td><%= song.get_popularity %></td>
+        <td><%= song.artist.get_truncated_name %></td>
+        <td><%= song.album.get_truncated_name %></td>
+        <td><%= song.get_release_date %></td>
+        <td><%= song.get_duration %></td>
+        <td><%= song.explicit %></td>
       </tr>
     <% end %>
   </tbody>

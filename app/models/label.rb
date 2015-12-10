@@ -10,7 +10,7 @@
 #
 
 class Label < ActiveRecord::Base
-  has_many :artists # A Label has many Artists
+  has_many :artists, dependent: :destroy # A Label has many Artists
   validates :name, uniqueness: true
 
   def self.populate_database
