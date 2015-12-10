@@ -22,9 +22,16 @@ class SpotifySong < ActiveRecord::Base
 
   def self.get_spotify_songs
     RSpotify.authenticate(ENV["SPOTIFY_CLIENT_ID"], ENV["SPOTIFY_CLIENT_SECRET"])
+    count = 0
+    max_count = 1000
     spotify_albums = SpotifyAlbum.all
 
     spotify_albums.each do |spotify_album|
+      if count >= max_count
+        RSpotify.authenticate(ENV["SPOTIFY_CLIENT_ID"], ENV["SPOTIFY_CLIENT_SECRET"]) # re-authenticate
+        count = 0
+      end
+      
       spotify_artist_id = spotify_album.spotifyArtistID
       spotify_album_id = spotify_album.spotifyID
 
@@ -61,7 +68,7 @@ class SpotifySong < ActiveRecord::Base
           end
         end
       end
-      sleep(0.1)
+      #sleep(0.1)
     end
     return true
   end
