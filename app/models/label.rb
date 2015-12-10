@@ -28,4 +28,16 @@ class Label < ActiveRecord::Base
     end
   end
 
+  def self.assign_locations
+    locations = ["California", "California", "California", "California", "California", "California", "New York", "New York", "New York", "New York", "New York", "New York", "New York", "Georgia", "Tennessee", "New Jersey", "California", "California", "California", "California", "California", "California", "Florida", "Illinois", "New York", "New York", "New York", "New York", "New York", "New York", "New York", "Texas", "Pennsylvania"]
+    num_locations = locations.size - 1
+    labels = Label.all
+
+    labels.each do |label|
+      location = locations[Random.rand(0..num_locations)]
+      label.location = location
+      label.save
+    end
+  end
+
 end

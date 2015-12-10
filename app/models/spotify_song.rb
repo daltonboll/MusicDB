@@ -23,24 +23,44 @@ class SpotifySong < ActiveRecord::Base
   def self.get_spotify_songs
     RSpotify.authenticate(ENV["SPOTIFY_CLIENT_ID"], ENV["SPOTIFY_CLIENT_SECRET"])
     count = 0
-    max_count = 1000
-    spotify_albums = SpotifyAlbum.where("id >= 1694")
+    max_count = 100
+    current_index = 1755
+    spotify_albums = SpotifyAlbum.where("id >= #{current_index}")
 
-    spotify_albums.each do |spotify_album|
+    while not spotify_albums.empty?
+      puts "CURRENT INDEX = #{current_index}"
       if count >= max_count
         RSpotify.authenticate(ENV["SPOTIFY_CLIENT_ID"], ENV["SPOTIFY_CLIENT_SECRET"]) # re-authenticate
         count = 0
       end
 
-      spotify_artist_id = spotify_album.spotifyArtistID
-      spotify_album_id = spotify_album.spotifyID
+      spotify_albums = SpotifyAlbum.where("id >= #{current_index}").first(20)
+      current_index += 20
+      ids = []
 
-      puts "Getting info for songs with artist id: #{spotify_artist_id} and album id: #{spotify_album_id}"
-      album = RSpotify::Album.find(spotify_album_id)
+      spotify_albums.each do |s_album|
+        ids.append(s_album.spotifyID)
+      end
 
-      if album.nil?
-        puts "We couldn't find the album with id #{spotify_album_id}"
-      else
+      albums = RSpotify::Album.find(ids)
+
+      albums.each do |album|
+        spotify_album_id = album.id
+        spotify_album_object = Album.find_by(spotifyID: spotify_album_id)
+
+        if spotify_album_object.nil?
+          puts "We couldn't find the album with id #{spotify_album_id}"
+          next
+        end
+
+        spotify_artist_object = spotify_album_object.artist
+
+        if spotify_artist_object.nil?
+          puts "We couldn't find the artist associated with the album id #{spotify_album_id}"
+          next
+        end
+
+        spotify_artist_id = spotify_artist_object.spotifyID
         songs = album.tracks
 
         if songs.nil?
@@ -68,7 +88,7 @@ class SpotifySong < ActiveRecord::Base
           end
         end
       end
-      #sleep(0.1)
+      # sleep(20)
     end
     return true
   end
