@@ -18,10 +18,10 @@
   <tbody>
     <% @songs.each do |song| %>
       <tr class="clickable-row" data-href="<%= song_url(song) %>">
-        <td><%= song.title %></td>
+        <td><%= link_to(song.title, song_url(song)) %></td>
         <td><%= song.get_popularity %></td>
-        <td><%= song.artist.get_truncated_name %></td>
-        <td><%= song.album.get_truncated_name %></td>
+        <td><%= link_to(song.artist.get_truncated_name, artist_url(song.artist)) %></td>
+        <td><%= link_to(song.album.get_truncated_name, album_url(song.album)) %></td>
         <td><%= song.get_release_date %></td>
         <td><%= song.get_duration %></td>
         <td><%= song.explicit %></td>
