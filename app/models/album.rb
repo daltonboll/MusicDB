@@ -18,4 +18,17 @@ class Album < ActiveRecord::Base
   belongs_to :artist # An Album belongs to an Artist
   has_many :songs # An Album has many Songs
   has_many :awards # An Album has many Awards
+
+  def self.convert_spotify_data
+    spotify_albums = SpotifyAlbum.all
+
+    spotify_albums.each do |s_album|
+      title = s_album.title
+      
+
+
+    end
+
+  end
+
 end

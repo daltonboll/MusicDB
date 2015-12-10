@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151210014612) do
+ActiveRecord::Schema.define(version: 20151210022724) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,13 +19,14 @@ ActiveRecord::Schema.define(version: 20151210014612) do
   create_table "albums", force: :cascade do |t|
     t.text     "title"
     t.integer  "releaseDate"
-    t.text     "genre"
     t.integer  "amountSold"
     t.integer  "billboard200Peak"
     t.integer  "numberOfSingles"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.integer  "artist_id"
+    t.string   "genres",           default: [],              array: true
+    t.string   "images",           default: [],              array: true
   end
 
   add_index "albums", ["artist_id"], name: "index_albums_on_artist_id", using: :btree
@@ -38,9 +39,11 @@ ActiveRecord::Schema.define(version: 20151210014612) do
     t.text     "gender"
     t.text     "race"
     t.integer  "debutYear"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
     t.integer  "label_id"
+    t.string   "images",      default: [],              array: true
+    t.string   "genres",      default: [],              array: true
   end
 
   add_index "artists", ["label_id"], name: "index_artists_on_label_id", using: :btree
