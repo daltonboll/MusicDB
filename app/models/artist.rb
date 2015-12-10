@@ -68,4 +68,23 @@ class Artist < ActiveRecord::Base
     return true
   end
 
+  def self.convert_spotify_data
+    spotify_artists = SpotifyArtist.all
+
+    spotify_artists.each do |s_artist|
+      s_name = s_artist.name
+      artist = Artist.find_by(name: s_name)
+      
+      if not artist.nil?
+        artist.spotifyID = s_artist.spotifyID
+        artist.popularity = s_artist.popularity
+        artist.genres = s_artist.genres
+        artist.images = s_artist.images
+        artist.save
+      else
+        puts "WE HAVE NO ARTIST WITH THE NAME #{s_name}"
+      end
+    end
+  end
+
 end
