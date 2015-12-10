@@ -30,6 +30,7 @@ class Album < ActiveRecord::Base
       genres = s_album.genres
       images = s_album.images
       spotify_artist_id = s_album.spotifyArtistID
+      spotifyID = s_album.spotifyID
       popularity = s_album.popularity
     end
 
