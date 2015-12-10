@@ -14,7 +14,7 @@ label1 = Label.create({ name: "Interscope Records", location: "New York City" })
 label2 = Label.create({ name: "Def Jam Records", location: "Los Angeles" })
 label3 = Label.create({ name: "Mowtown Records", location: "Nashville" })
 
-artist1 = Artist.create({ name: "Bobby", age: 27, homeCountry: "United States", homeState: "California", gender: "Male", race: "Caucasian", debutYear: 2004 })
+artist1 = Artist.create({ name: "Bobby", age: 27, homeCountry: "United States", gender: "Male", race: "Caucasian", debutYear: 2004 })
 artist1_album1 = Album.create({ title: "Pretty in Pink", releaseDate: "2004", genre: "Pop", amountSold: 2000000, billboard200Peak: 10, numberOfSingles: 3 })
 artist1_album2 = Album.create({ title: "Alaska", releaseDate: "2007", genre: "Rock", amountSold: 130000000, billboard200Peak: 1, numberOfSingles: 4 })
 artist1_album3 = Album.create({ title: "Born and Raised", releaseDate: "2010", genre: "Pop/Rock", amountSold: 170000, billboard200Peak: 56, numberOfSingles: 2 })
@@ -29,7 +29,7 @@ artist1_album2.awards << artist1_award1
 artist1_album2.awards << artist1_award2
 artist1.label = label1
 
-artist2 = Artist.create({ name: "Jacky", age: 55, homeCountry: "United States", homeState: "Nevada", gender: "Female", race: "African American", debutYear: 2011 })
+artist2 = Artist.create({ name: "Jacky", age: 55, homeCountry: "United States", gender: "Female", race: "African American", debutYear: 2011 })
 artist2_album1 = Album.create({ title: "Woods", releaseDate: "2011", genre: "Country", amountSold: 5760000, billboard200Peak: 3, numberOfSingles: 4 })
 artist2.albums << artist2_album1
 artist2_award1 = Award.create({ title: "Album Of The Year", event: "The Grammys", dateAwarded: "2012" })
@@ -37,14 +37,14 @@ artist2.awards << artist2_award1
 artist2_album1.awards << artist2_award1
 artist2.label = label1
 
-artist3 = Artist.create({ name: "Jimmy", age: 18, homeCountry: "France", homeState: "Paris", gender: "Male", race: "Asian", debutYear: 1992 })
+artist3 = Artist.create({ name: "Jimmy", age: 18, homeCountry: "France", gender: "Male", race: "Asian", debutYear: 1992 })
 artist3_album1 = Album.create({ title: "Never Again", releaseDate: "1992", genre: "Jazz", amountSold: 1100000, billboard200Peak: 70, numberOfSingles: 5 })
 artist3_album2 = Album.create({ title: "I Told You So", releaseDate: "1998", genre: "Blues", amountSold: 550000, billboard200Peak: 8, numberOfSingles: 2 })
 artist3.albums << artist3_album1
 artist3.albums << artist3_album2
 artist3.label = label3
 
-artist4 = Artist.create({ name: "Smeagle", age: 110, homeCountry: "Mordor", homeState: "Shire", gender: "Male", race: "Hobbit", debutYear: 1977 })
+artist4 = Artist.create({ name: "Smeagle", age: 110, homeCountry: "Mordor", gender: "Male", race: "Hobbit", debutYear: 1977 })
 artist4_album1 = Album.create({ title: "My Precious", releaseDate: "1977", genre: "Folk", amountSold: 5000000, billboard200Peak: 1, numberOfSingles: 4 })
 artist4_album2 = Album.create({ title: "He Wantses It", releaseDate: "1978", genre: "Folk", amountSold: 4500000, billboard200Peak: 1, numberOfSingles: 4 })
 artist4.albums << artist4_album1
