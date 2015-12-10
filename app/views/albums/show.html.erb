@@ -33,7 +33,7 @@
 
 <h2>Songs (<%= @album.songs.size %>)</h2>
 <% if @album.songs.size > 0 %>
-  <table id="songs-table">
+  <table id="artist-songs-table">
     <thead>
       <tr>
         <th>Track #</th>
@@ -46,7 +46,7 @@
     </thead>
 
     <tbody>
-      <% @songs.each do |song| %>
+      <% @album.songs.each do |song| %>
         <tr class="clickable-row" data-href="<%= song_url(song) %>">
           <td><%= song.get_track_number %></td>
           <td><%= song.title %></td>

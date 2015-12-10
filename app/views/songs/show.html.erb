@@ -14,7 +14,7 @@
 
 <p>
   <strong>Album Title:</strong>
-  <%= link_to(@song.album.get_release_date, @song.album) %>
+  <%= link_to(@song.album.title, @song.album) %>
 </p>
 
 <p>
@@ -25,6 +25,21 @@
 <p>
   <strong>Duration:</strong>
   <%= @song.get_duration %>
+</p>
+
+<p>
+  <strong>Track Number:</strong>
+  <%= @song.get_track_number %>
+</p>
+
+<p>
+  <strong>Explicit?</strong>
+  <%= @song.get_explicit %>
+</p>
+
+<p>
+  <strong>Disc Number:</strong>
+  <%= @song.get_disc_number %>
 </p>
 
 <p>

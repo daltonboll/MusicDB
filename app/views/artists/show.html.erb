@@ -81,14 +81,14 @@
     </thead>
 
     <tbody>
-      <% @songs.each do |song| %>
+      <% @artist.songs.each do |song| %>
         <tr class="clickable-row" data-href="<%= song_url(song) %>">
           <td><%= song.title %></td>
           <td><%= song.get_popularity %></td>
           <td><%= song.album.title %></td>
           <td><%= song.get_release_date %></td>
           <td><%= song.get_duration %></td>
-          <td><%= song.explicit %></td>
+          <td><%= song.get_explicit %></td>
         </tr>
       <% end %>
     </tbody>

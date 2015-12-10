@@ -56,7 +56,7 @@ class Song < ActiveRecord::Base
           artist.songs << song
           artist.save
           album.songs << song
-          album.song
+          album.save
         end
       else
         puts "THE SONG WITH ID #{spotifyID} HAS NO ALBUM OR ARTIST IN THE DB"
@@ -151,6 +151,21 @@ class Song < ActiveRecord::Base
     else
       # TODO: convert this to readable format
       return duration 
+    end
+  end
+
+  def get_release_date
+    return self.album.get_release_date
+  end
+
+  def get_truncated_title
+    title = self.title
+
+    if title.size > 32
+      truncation = title[0,32] + "..."
+      return truncation
+    else
+      return title
     end
   end
 
