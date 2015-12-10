@@ -1,0 +1,53 @@
+<%= form_for(@spotify_album) do |f| %>
+  <% if @spotify_album.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@spotify_album.errors.count, "error") %> prohibited this spotify_album from being saved:</h2>
+
+      <ul>
+      <% @spotify_album.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :spotifyID %><br>
+    <%= f.text_field :spotifyID %>
+  </div>
+  <div class="field">
+    <%= f.label :albumType %><br>
+    <%= f.text_field :albumType %>
+  </div>
+  <div class="field">
+    <%= f.label :spotifyArtistID %><br>
+    <%= f.text_field :spotifyArtistID %>
+  </div>
+  <div class="field">
+    <%= f.label :genres %><br>
+    <%= f.text_field :genres %>
+  </div>
+  <div class="field">
+    <%= f.label :images %><br>
+    <%= f.text_field :images %>
+  </div>
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :popularity %><br>
+    <%= f.number_field :popularity %>
+  </div>
+  <div class="field">
+    <%= f.label :releaseDate %><br>
+    <%= f.text_field :releaseDate %>
+  </div>
+  <div class="field">
+    <%= f.label :releaseDatePrecision %><br>
+    <%= f.text_field :releaseDatePrecision %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

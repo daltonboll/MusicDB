@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Spotify Albums</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Spotifyid</th>
+      <th>Albumtype</th>
+      <th>Spotifyartistid</th>
+      <th>Genres</th>
+      <th>Images</th>
+      <th>Title</th>
+      <th>Popularity</th>
+      <th>Releasedate</th>
+      <th>Releasedateprecision</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @spotify_albums.each do |spotify_album| %>
+      <tr>
+        <td><%= spotify_album.spotifyID %></td>
+        <td><%= spotify_album.albumType %></td>
+        <td><%= spotify_album.spotifyArtistID %></td>
+        <td><%= spotify_album.genres %></td>
+        <td><%= spotify_album.images %></td>
+        <td><%= spotify_album.title %></td>
+        <td><%= spotify_album.popularity %></td>
+        <td><%= spotify_album.releaseDate %></td>
+        <td><%= spotify_album.releaseDatePrecision %></td>
+        <td><%= link_to 'Show', spotify_album %></td>
+        <td><%= link_to 'Edit', edit_spotify_album_path(spotify_album) %></td>
+        <td><%= link_to 'Destroy', spotify_album, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Spotify album', new_spotify_album_path %>

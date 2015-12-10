@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Spotifyid:</strong>
+  <%= @spotify_album.spotifyID %>
+</p>
+
+<p>
+  <strong>Albumtype:</strong>
+  <%= @spotify_album.albumType %>
+</p>
+
+<p>
+  <strong>Spotifyartistid:</strong>
+  <%= @spotify_album.spotifyArtistID %>
+</p>
+
+<p>
+  <strong>Genres:</strong>
+  <%= @spotify_album.genres %>
+</p>
+
+<p>
+  <strong>Images:</strong>
+  <%= @spotify_album.images %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @spotify_album.title %>
+</p>
+
+<p>
+  <strong>Popularity:</strong>
+  <%= @spotify_album.popularity %>
+</p>
+
+<p>
+  <strong>Releasedate:</strong>
+  <%= @spotify_album.releaseDate %>
+</p>
+
+<p>
+  <strong>Releasedateprecision:</strong>
+  <%= @spotify_album.releaseDatePrecision %>
+</p>
+
+<%= link_to 'Edit', edit_spotify_album_path(@spotify_album) %> |
+<%= link_to 'Back', spotify_albums_path %>

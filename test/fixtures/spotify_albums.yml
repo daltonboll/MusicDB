@@ -1,0 +1,41 @@
+# == Schema Information
+#
+# Table name: spotify_albums
+#
+#  id                   :integer          not null, primary key
+#  spotifyID            :string
+#  albumType            :string
+#  spotifyArtistID      :string
+#  genres               :string           default([]), is an Array
+#  images               :string           default([]), is an Array
+#  title                :string
+#  popularity           :integer
+#  releaseDate          :string
+#  releaseDatePrecision :string
+#  created_at           :datetime         not null
+#  updated_at           :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  spotifyID: MyString
+  albumType: MyString
+  spotifyArtistID: MyString
+  genres: MyString
+  images: MyString
+  title: MyString
+  popularity: 1
+  releaseDate: MyString
+  releaseDatePrecision: MyString
+
+two:
+  spotifyID: MyString
+  albumType: MyString
+  spotifyArtistID: MyString
+  genres: MyString
+  images: MyString
+  title: MyString
+  popularity: 1
+  releaseDate: MyString
+  releaseDatePrecision: MyString
