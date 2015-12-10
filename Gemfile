@@ -32,6 +32,8 @@ gem 'devise'
 gem 'font-awesome-rails'
 # For making easy http connections
 gem 'httparty'
+# For accessing Spotify API
+gem 'rspotify'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

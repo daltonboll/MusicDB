@@ -7,11 +7,11 @@
 #  stageName   :string
 #  artistType  :string
 #  gender      :string
-#  imageId     :string
-#  spotifyId   :string
-#  birthDate   :string
+#  imageID     :string
+#  spotifyID   :string
+#  birthYear   :integer
 #  birthPlace  :string
-#  deathDate   :string
+#  deathYear   :integer
 #  deathPlace  :string
 #  legalName   :string
 #  age         :integer
