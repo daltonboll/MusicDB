@@ -6,7 +6,7 @@
 #  name        :text
 #  age         :integer
 #  homeCountry :text
-#  homeState   :text
+#  homeRegion  :text
 #  gender      :text
 #  race        :text
 #  debutYear   :integer
@@ -139,6 +139,66 @@ class Artist < ActiveRecord::Base
       return "No associated genres"
     else
       return genre_text
+    end
+  end
+
+  def get_label
+    label = self.label
+
+    if label.nil?
+      return "N/a"
+    else
+      return label.name
+    end
+  end
+
+  def get_age
+    age = self.age
+
+    if age.nil?
+      return "N/a"
+    else
+      return age
+    end
+  end
+
+  def get_race
+    race = self.race
+
+    if race.nil?
+      return "N/a"
+    else
+      return race
+    end
+  end
+
+  def get_home_country
+    home_country = self.homeCountry
+
+    if home_country.nil?
+      return "N/a"
+    else
+      return home_country
+    end
+  end
+
+  def get_home_region
+    home_region = self.homeRegion
+
+    if home_region.nil?
+      return "N/a"
+    else
+      return home_region
+    end
+  end
+
+  def get_debut_year
+    debut_year = self.debutYear
+
+    if debut_year.nil?
+      return "N/a"
+    else
+      return debut_year
     end
   end
 

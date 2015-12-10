@@ -16,6 +16,12 @@
 #  album_id            :integer
 #  popularity          :integer          default(0)
 #  spotifyID           :string
+#  discNumber          :integer
+#  spotifyArtistID     :string
+#  spotifyAlbumID      :string
+#  durationMS          :integer
+#  explicit            :boolean
+#  trackNumber         :integer
 #
 
 class Song < ActiveRecord::Base
@@ -23,8 +29,6 @@ class Song < ActiveRecord::Base
   belongs_to :album # A slong belongs to an Album
   validates :spotifyID, uniqueness: true
 
-  # song_hash = { spotifyID: spotifyID, spotifyArtistID: spotifyArtistID, spotifyAlbumID: spotifyAlbumID, discNumber: discNumber, durationMS: durationMS, explicit: explicit, title: title, popularity: popularity, trackNumber: trackNumber }
-  
   def self.convert_spotify_data
     spotify_songs = SpotifySong.all
 
@@ -42,12 +46,20 @@ class Song < ActiveRecord::Base
         title = s_song.title
         popularity = s_song.popularity
         trackNumber = s_song.trackNumber
+
+        song_hash = { spotifyID: spotifyID, spotifyArtistID: spotifyArtistID, spotifyAlbumID: spotifyAlbumID, discNumber: discNumber, durationMS: durationMS, explicit: explicit, title: title, popularity: popularity, trackNumber: trackNumber }
+        song = Song.create(song_hash)
+
+        if song.save
+          artist.songs << song
+          artist.save
+          album.songs << song
+          album.song
+        end
       else
         puts "THE SONG WITH ID #{spotifyID} HAS NO ALBUM OR ARTIST IN THE DB"
       end
-
     end
-
   end
 
 end

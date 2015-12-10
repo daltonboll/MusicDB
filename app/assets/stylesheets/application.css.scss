@@ -23,7 +23,7 @@ body {
 }
 
 .content {
-	margin: 10px;
+	margin: 30px;
 }
 
 .logo {
@@ -32,6 +32,12 @@ body {
 
 nav {
 	margin-right: 10px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 10px;
+	margin-bottom: 30px;
+	margin-top: 30px;
 }
 
 tr {
@@ -53,4 +59,10 @@ td {
 
 .clickable-row:hover td {
 	background-color: #dbecfc;
+}
+
+.artist-image {
+	display: inline;
+	max-width: 100px;
+	margin: 10px;
 }

@@ -16,6 +16,12 @@
 #  album_id            :integer
 #  popularity          :integer          default(0)
 #  spotifyID           :string
+#  discNumber          :integer
+#  spotifyArtistID     :string
+#  spotifyAlbumID      :string
+#  durationMS          :integer
+#  explicit            :boolean
+#  trackNumber         :integer
 #
 
 require 'test_helper'

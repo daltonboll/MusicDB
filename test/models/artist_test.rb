@@ -6,7 +6,7 @@
 #  name        :text
 #  age         :integer
 #  homeCountry :text
-#  homeState   :text
+#  homeRegion  :text
 #  gender      :text
 #  race        :text
 #  debutYear   :integer

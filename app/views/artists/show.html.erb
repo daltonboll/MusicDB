@@ -1,39 +1,51 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @artist.name %>
-</p>
+<h1>Artist: <%= @artist.name %></h1>
+<div class="artist-images">
+  <% @artist.images.each do |image_url| %>
+    <img class="artist-image" src="<%= image_url %>"/>
+  <% end %>
+</div>
 
+<h2>Basic Info</h2>
 <p>
   <strong>Age:</strong>
-  <%= @artist.age %>
-</p>
-
-<p>
-  <strong>Homecountry:</strong>
-  <%= @artist.homeCountry %>
-</p>
-
-<p>
-  <strong>Homestate:</strong>
-  <%= @artist.homeState %>
+  <%= @artist.get_age %>
 </p>
 
 <p>
   <strong>Gender:</strong>
-  <%= @artist.gender %>
+  <%= @artist.get_gender %>
 </p>
 
 <p>
   <strong>Race:</strong>
-  <%= @artist.race %>
+  <%= @artist.get_race %>
 </p>
 
 <p>
-  <strong>Debutyear:</strong>
-  <%= @artist.debutYear %>
+  <strong>Home Country:</strong>
+  <%= @artist.get_home_country %>
 </p>
+
+<p>
+  <strong>Home Region:</strong>
+  <%= @artist.get_home_region %>
+</p>
+
+<p>
+  <strong>Debut Year:</strong>
+  <%= @artist.get_debut_year %>
+</p>
+
+<p>
+  <strong>Label:</strong>
+  <%= @artist.get_label %>
+</p>
+
+<h2>Albums (<%= @artist.albums.size %>)</h2>
+
+<h2>Songs (<%= @artist.songs.size %>)</h2>
 
 <%= link_to 'Edit', edit_artist_path(@artist) %> |
 <%= link_to 'Back', artists_path %>
