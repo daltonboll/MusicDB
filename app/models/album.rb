@@ -14,6 +14,7 @@
 #  genres           :string           default([]), is an Array
 #  images           :string           default([]), is an Array
 #  popularity       :integer          default(0)
+#  spotifyID        :string
 #
 
 class Album < ActiveRecord::Base
@@ -29,10 +30,7 @@ class Album < ActiveRecord::Base
       genres = s_album.genres
       images = s_album.images
       spotify_artist_id = s_album.spotifyArtistID
-      
-      
-
-
+      popularity = s_album.popularity
     end
 
   end

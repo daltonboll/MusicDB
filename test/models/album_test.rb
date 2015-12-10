@@ -14,6 +14,7 @@
 #  genres           :string           default([]), is an Array
 #  images           :string           default([]), is an Array
 #  popularity       :integer          default(0)
+#  spotifyID        :string
 #
 
 require 'test_helper'

@@ -15,6 +15,7 @@
 #  artist_id           :integer
 #  album_id            :integer
 #  popularity          :integer          default(0)
+#  spotifyID           :string
 #
 
 class Song < ActiveRecord::Base
