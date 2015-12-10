@@ -18,6 +18,7 @@
 #  albumType            :string
 #  releaseDatePrecision :string
 #  spotifyArtistID      :string
+#  artistName           :string
 #
 
 require 'test_helper'

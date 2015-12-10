@@ -22,6 +22,8 @@
 #  durationMS          :integer
 #  explicit            :boolean
 #  trackNumber         :integer
+#  artistName          :string
+#  albumName           :string
 #
 
 class Song < ActiveRecord::Base
@@ -59,6 +61,24 @@ class Song < ActiveRecord::Base
       else
         puts "THE SONG WITH ID #{spotifyID} HAS NO ALBUM OR ARTIST IN THE DB"
       end
+    end
+  end
+
+  def self.update_artist_names
+    songs = Song.all
+    songs.each do |song|
+      artist = song.artist.name
+      song.artistName = artist
+      song.save
+    end
+  end
+
+  def self.update_album_names
+    songs = Song.all
+    songs.each do |song|
+      album = song.album.title
+      song.albumName = album
+      song.save
     end
   end
 

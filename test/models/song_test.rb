@@ -22,6 +22,8 @@
 #  durationMS          :integer
 #  explicit            :boolean
 #  trackNumber         :integer
+#  artistName          :string
+#  albumName           :string
 #
 
 require 'test_helper'

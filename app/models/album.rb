@@ -18,6 +18,7 @@
 #  albumType            :string
 #  releaseDatePrecision :string
 #  spotifyArtistID      :string
+#  artistName           :string
 #
 
 class Album < ActiveRecord::Base
@@ -52,6 +53,15 @@ class Album < ActiveRecord::Base
       else 
         puts "WE HAVE NO ARTIST WITH ID #{spotifyArtistID}"
       end
+    end
+  end
+
+  def self.update_artist_names
+    albums = Album.all
+    albums.each do |album|
+      artist = album.artist.name
+      album.artistName = artist
+      album.save
     end
   end
 

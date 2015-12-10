@@ -18,6 +18,7 @@
 #  albumType            :string
 #  releaseDatePrecision :string
 #  spotifyArtistID      :string
+#  artistName           :string
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
