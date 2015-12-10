@@ -5,13 +5,14 @@
 #  id               :integer          not null, primary key
 #  title            :text
 #  releaseDate      :integer
-#  genre            :text
 #  amountSold       :integer
 #  billboard200Peak :integer
 #  numberOfSingles  :integer
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
 #  artist_id        :integer
+#  genres           :string           default([]), is an Array
+#  images           :string           default([]), is an Array
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

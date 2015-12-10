@@ -13,6 +13,8 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  label_id    :integer
+#  images      :string           default([]), is an Array
+#  genres      :string           default([]), is an Array
 #
 
 require 'test_helper'
