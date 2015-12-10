@@ -14,6 +14,7 @@
 #  updated_at          :datetime         not null
 #  artist_id           :integer
 #  album_id            :integer
+#  popularity          :integer          default(0)
 #
 
 class Song < ActiveRecord::Base

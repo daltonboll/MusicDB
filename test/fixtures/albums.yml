@@ -13,6 +13,7 @@
 #  artist_id        :integer
 #  genres           :string           default([]), is an Array
 #  images           :string           default([]), is an Array
+#  popularity       :integer          default(0)
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

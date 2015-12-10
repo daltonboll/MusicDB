@@ -15,6 +15,7 @@
 #  label_id    :integer
 #  images      :string           default([]), is an Array
 #  genres      :string           default([]), is an Array
+#  popularity  :integer          default(0)
 #
 
 require 'test_helper'
