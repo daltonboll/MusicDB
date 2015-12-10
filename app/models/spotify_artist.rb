@@ -30,23 +30,27 @@ class SpotifyArtist < ActiveRecord::Base
         spotify_artists = RSpotify::Artist.search(search_name)
         spotify_artist = spotify_artists.first
 
-        spotifyID = spotify_artist.id
-        popularity = spotify_artist.popularity
-        images_hash = spotify_artist.images
-        genres = spotify_artist.genres
-        name = spotify_artist.name
+        if spotify_artist.nil?
+          puts "NO ARTISTS WERE FOUND WITH THE NAME #{search_name}"
+        else
+          spotifyID = spotify_artist.id
+          popularity = spotify_artist.popularity
+          images_hash = spotify_artist.images
+          genres = spotify_artist.genres
+          name = spotify_artist.name
 
-        # Only grab the urls of the images
-        images = []
-        images_hash.each do |image_hash|
-          url = image_hash["url"]
-          images << url
+          # Only grab the urls of the images
+          images = []
+          images_hash.each do |image_hash|
+            url = image_hash["url"]
+            images << url
+          end
+
+          artist_hash = { name: name, popularity: popularity, spotifyID: spotifyID, images: images, genres: genres }
+          new_artist = SpotifyArtist.create(artist_hash)
+          new_artist.save
         end
-
-        artist_hash = { name: name, popularity: popularity, spotifyID: spotifyID, images: images, genres: genres }
-        new_artist = SpotifyArtist.create(artist_hash)
-        new_artist.save
-        sleep(0.5)
+        sleep(0.2)
       end
     end
 
