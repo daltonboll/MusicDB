@@ -71,6 +71,17 @@ class Award < ActiveRecord::Base
     end
   end
 
+  def self.delete_awards_with_no_artist
+    awards = Award.all
+
+    awards.each do |award|
+      artist = award.artist
+      if artist.nil?
+        award.destroy
+      end
+    end
+  end
+
   def get_artist
     artist = self.artist
 

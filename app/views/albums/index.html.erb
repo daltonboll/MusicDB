@@ -16,7 +16,7 @@
     <% @albums.each do |album| %>
       <tr class="clickable-row" data-href="<%= album_url(album) %>">
         <td><%= link_to(album.get_truncated_title, album_url(album)) %></td>
-        <td><%= link_to(album.artistName, artist_url(album.artist)) %></td>
+        <td><%= link_to(album.artist.name, artist_url(album.artist)) %></td>
         <td><%= album.get_popularity %></td>
         <td><%= album.get_release_date %></td>
       </tr>

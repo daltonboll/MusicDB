@@ -22,6 +22,11 @@ body {
 	font-family: 'Roboto', sans-serif;
 }
 
+header {
+	background-color: #84caf9;
+	min-height:80px;
+}
+
 .content {
 	margin: 30px;
 	margin-top: 70px;
@@ -30,12 +35,22 @@ body {
 .logo {
 	margin-left: 25px;
 	font-size: 40px;
-	margin-top: 20px;
+	padding-top: 30px;
+	float: left;
+}
+
+.logo a {
+	color: white;
+}
+
+.logo a:hover {
+	color: #DBECFC;
 }
 
 nav {
 	margin-right: 10px;
 	margin-bottom: 30px;
+	padding-top: 30px;
 }
 
 nav ul {
@@ -44,14 +59,23 @@ nav ul {
 
 nav li {
 	display: inline;
-	margin: 20px;
-	margin-top: 0px;
+	margin-left: 20px;
+	margin-right: 20px;
 	font-size: 16px;
 	float: right;
 }
 
 nav li a {
 	text-decoration: none;
+	color: white;
+}
+
+nav li a:visited {
+	color: white;
+}
+
+nav li a:hover {
+	color: #DBECFC;
 }
 
 h1, h2, h3, h4, h5, h6 {

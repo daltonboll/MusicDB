@@ -5,8 +5,7 @@
 $(document).ready( function () {
     $('#albums-table').DataTable( {
     	scrollY: 400,
-    	paging: true,
-    	lengthMenu: [100, 75, 50, 25, 10]
+    	paging: false
     } );
 } );
 

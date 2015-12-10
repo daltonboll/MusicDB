@@ -25,7 +25,7 @@ class Album < ActiveRecord::Base
   belongs_to :artist # An Album belongs to an Artist
   has_many :songs, dependent: :destroy # An Album has many Songs
   has_many :awards, dependent: :destroy # An Album has many Awards
-  validates :spotifyID, uniqueness: true
+  validates :spotifyID, :title, uniqueness: true
 
   def self.convert_spotify_data
     spotify_albums = SpotifyAlbum.all
@@ -52,6 +52,17 @@ class Album < ActiveRecord::Base
         end
       else 
         puts "WE HAVE NO ARTIST WITH ID #{spotifyArtistID}"
+      end
+    end
+  end
+
+  def self.delete_albums_with_no_artists
+    albums = Album.all
+
+    albums.each do |album|
+      artist = album.artist
+      if artist.nil?
+        album.destroy
       end
     end
   end

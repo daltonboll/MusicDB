@@ -118,6 +118,19 @@ class Artist < ActiveRecord::Base
     end
   end
 
+  def self.delete_artists_randomly
+    artists = Artist.all
+    deletion_factors = [1, 1, 0, 1, 0, 1, 1, 0, 1, 0]
+    factor_length = deletion_factors.size - 1
+
+    artists.each do |artist|
+      factor = deletion_factors[Random.rand(0..factor_length)]
+      if factor == 1
+        artist.destroy
+      end
+    end
+  end
+
   def get_truncated_name
     name = self.name
 
