@@ -7,11 +7,9 @@
     <tr>
       <th>Name</th>
       <th>Age</th>
+      <th>Popularity</th>
       <th>Genres</th>
-      <th>Home Country</th>
-      <th>Home Region</th>
       <th>Gender</th>
-      <th>Race</th>
       <th>Debut Year</th>
     </tr>
   </thead>
@@ -21,11 +19,9 @@
       <tr class="clickable-row" data-href="<%= artist_url(artist) %>">
         <td><%= artist.name %></td>
         <td><%= artist.age %></td>
+        <td><%= artist.popularity %></td>
         <td><%= artist.genres %></td>
-        <td><%= artist.homeCountry %></td>
-        <td><%= artist.homeState %></td>
         <td><%= artist.gender %></td>
-        <td><%= artist.race %></td>
         <td><%= artist.debutYear %></td>
       </tr>
     <% end %>
