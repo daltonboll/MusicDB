@@ -5,6 +5,6 @@
 $(document).ready( function () {
     $('#songs-table').DataTable( {
     	scrollY: 400,
-    	paging: false,
+    	paging: true,
     } );
 } );

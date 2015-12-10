@@ -2,12 +2,15 @@
 
 <h1>Artist: <%= @artist.name %></h1>
 <div class="artist-images">
-  <% @artist.images.each do |image_url| %>
-    <img class="artist-image" src="<%= image_url %>"/>
-  <% end %>
+    <img class="artist-image" src="<%= @artist.images.first %>"/>
 </div>
 
 <h2>Basic Info</h2>
+<p>
+  <strong>Popularity:</strong>
+  <%= @artist.get_popularity %>
+</p>
+
 <p>
   <strong>Age:</strong>
   <%= @artist.get_age %>
@@ -48,6 +51,11 @@
   <%= @artist.get_genres_for_bio %>
 </p>
 
+<p>
+  <strong>Spotify ID:</strong>
+  <%= @artist.get_spotify_id %>
+</p>
+
 <h2>Albums (<%= @artist.albums.size %>)</h2>
 <% if @artist.albums.size > 0 %>
   <table id="albums-table">
@@ -76,6 +84,31 @@
 <% end %>
 
 <h2>Songs (<%= @artist.songs.size %>)</h2>
+<% if @artist.songs.size > 0 %>
+  <table id="songs-table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Popularity</th>
+        <th>Album</th>
+        <th>Release Date</th>
+        <th>Explicit</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @songs.each do |song| %>
+        <tr class="clickable-row" data-href="<%= song_url(song) %>">
+          <td><%= song.title %></td>
+          <td><%= song.get_popularity %></td>
+          <td><%= song.album.title %></td>
+          <td><%= song.get_release_date %></td>
+          <td><%= song.explicit %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
 
 <%= link_to 'Edit', edit_artist_path(@artist) %> |
 <%= link_to 'Back', artists_path %>

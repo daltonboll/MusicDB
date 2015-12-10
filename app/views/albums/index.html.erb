@@ -6,11 +6,11 @@
   <thead>
     <tr>
       <th>Title</th>
+      <th>Artist</th>
       <th>Release Date</th>
       <th>Genres</th>
-      <th>Amount Sold</th>
-      <th>Billboard 200 Peak</th>
-      <th>Number Of Singles</th>
+      <th>Popularity</th>
+      <th>Songs</th>
     </tr>
   </thead>
 
@@ -18,11 +18,11 @@
     <% @albums.each do |album| %>
       <tr class="clickable-row" data-href="<%= album_url(album) %>">
         <td><%= album.title %></td>
-        <td><%= album.releaseDate %></td>
-        <td><%= album.genres %></td>
-        <td><%= album.amountSold %></td>
-        <td><%= album.billboard200Peak %></td>
-        <td><%= album.numberOfSingles %></td>
+        <td><%= album.artist.name %></td>
+        <td><%= album.get_release_date %></td>
+        <td><%= album.get_genres %></td>
+        <td><%= album.get_popularity %></td>
+        <td><%= album.songs.size %></td>
       </tr>
     <% end %>
   </tbody>

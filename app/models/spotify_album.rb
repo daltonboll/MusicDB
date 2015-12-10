@@ -24,7 +24,7 @@ class SpotifyAlbum < ActiveRecord::Base
     RSpotify.authenticate(ENV["SPOTIFY_CLIENT_ID"], ENV["SPOTIFY_CLIENT_SECRET"])
     count = 0
     max_count = 1000
-    spotify_artists = SpotifyArtist.all
+    spotify_artists = Artist.where("id >= 3711")
 
     spotify_artists.each do |spotify_artist|
       if count >= max_count

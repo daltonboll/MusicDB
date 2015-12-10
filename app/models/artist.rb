@@ -156,6 +156,16 @@ class Artist < ActiveRecord::Base
     end
   end
 
+  def get_popularity
+    popularity = self.popularity
+
+    if popularity.nil?
+      return 0
+    else
+      return popularity
+    end
+  end
+
   def get_age
     age = self.age
 
@@ -215,5 +225,17 @@ class Artist < ActiveRecord::Base
       return gender
     end
   end
+
+  def get_spotify_id
+    spotify_id = self.spotifyID
+
+    if spotify_id.nil?
+      return "N/a"
+    else
+      return spotify_id
+    end
+  end
+
+
 
 end
