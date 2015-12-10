@@ -149,8 +149,14 @@ class Song < ActiveRecord::Base
     if duration.nil?
       return "?"
     else
-      # TODO: convert this to readable format
-      return duration 
+      total_seconds = duration / 1000
+      minutes = total_seconds / 60
+      leftover_seconds = total_seconds % 60
+      if leftover_seconds < 10
+        return "#{minutes}:0#{leftover_seconds}"
+      else
+        return "#{minutes}:#{leftover_seconds}"
+      end
     end
   end
 
