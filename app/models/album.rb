@@ -25,6 +25,10 @@ class Album < ActiveRecord::Base
 
     spotify_albums.each do |s_album|
       title = s_album.title
+      genres = s_album.genres
+      images = s_album.images
+      spotify_artist_id = s_album.spotifyArtistID
+      
       
 
 
