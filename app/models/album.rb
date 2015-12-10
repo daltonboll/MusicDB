@@ -66,4 +66,51 @@ class Album < ActiveRecord::Base
     end
   end
 
+  def get_release_date
+    date = self.releaseDate
+
+    if date.nil?
+      return "N/a"
+    else
+      return date
+    end
+  end
+
+  def get_popularity
+    popularity = self.popularity
+
+    if popularity.nil?
+      return 0
+    else
+      return popularity
+    end
+  end
+
+  def get_genres
+    genres = self.genres
+    genre_text = ""
+
+    genres.each do |genre|
+      genre_text += genre.titleize + ", "
+    end
+
+    len = genre_text.size
+
+    if len > 0
+      genre_text = genre_text[0, len-2]
+    end
+    
+    return genre_text
+  end
+
+  def get_genres_for_bio
+    genre_text = self.get_genres
+
+    if genre_text.size == 0
+      return "No associated genres"
+    else
+      return genre_text
+    end
+  end
+
 end

@@ -43,7 +43,37 @@
   <%= @artist.get_label %>
 </p>
 
+<p>
+  <strong>Genres:</strong>
+  <%= @artist.get_genres_for_bio %>
+</p>
+
 <h2>Albums (<%= @artist.albums.size %>)</h2>
+<% if @artist.albums.size > 0 %>
+  <table id="albums-table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Release Date</th>
+        <th>Genres</th>
+        <th>Popularity</th>
+        <th>Songs</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @artist.albums.each do |album| %>
+        <tr class="clickable-row" data-href="<%= album_url(album) %>">
+          <td><%= album.title %></td>
+          <td><%= album.get_release_date %></td>
+          <td><%= album.get_genres_for_bio %></td>
+          <td><%= album.get_popularity %></td>
+          <td><%= album.songs.size %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
 
 <h2>Songs (<%= @artist.songs.size %>)</h2>
 

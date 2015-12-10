@@ -128,7 +128,11 @@ class Artist < ActiveRecord::Base
     end
 
     len = genre_text.size
-    genre_text = genre_text[0, len-2]
+
+    if len > 0
+      genre_text = genre_text[0, len-2]
+    end
+
     return genre_text
   end
 
@@ -199,6 +203,16 @@ class Artist < ActiveRecord::Base
       return "N/a"
     else
       return debut_year
+    end
+  end
+
+  def get_gender
+    gender = self.gender
+
+    if gender.nil?
+      return "N/a"
+    else
+      return gender
     end
   end
 
