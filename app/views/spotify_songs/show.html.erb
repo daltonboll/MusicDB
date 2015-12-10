@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Spotifyid:</strong>
+  <%= @spotify_song.spotifyID %>
+</p>
+
+<p>
+  <strong>Spotifyalbumid:</strong>
+  <%= @spotify_song.spotifyAlbumID %>
+</p>
+
+<p>
+  <strong>Spotifyartistid:</strong>
+  <%= @spotify_song.spotifyArtistID %>
+</p>
+
+<p>
+  <strong>Discnumber:</strong>
+  <%= @spotify_song.discNumber %>
+</p>
+
+<p>
+  <strong>Durationms:</strong>
+  <%= @spotify_song.durationMS %>
+</p>
+
+<p>
+  <strong>Explicit:</strong>
+  <%= @spotify_song.explicit %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @spotify_song.title %>
+</p>
+
+<p>
+  <strong>Popularity:</strong>
+  <%= @spotify_song.popularity %>
+</p>
+
+<p>
+  <strong>Tracknumber:</strong>
+  <%= @spotify_song.trackNumber %>
+</p>
+
+<%= link_to 'Edit', edit_spotify_song_path(@spotify_song) %> |
+<%= link_to 'Back', spotify_songs_path %>

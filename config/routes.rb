@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :spotify_songs
   resources :spotify_albums
   resources :spotify_artists
   resources :quantone_artists

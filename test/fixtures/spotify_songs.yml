@@ -1,0 +1,41 @@
+# == Schema Information
+#
+# Table name: spotify_songs
+#
+#  id              :integer          not null, primary key
+#  spotifyID       :string
+#  spotifyAlbumID  :string
+#  spotifyArtistID :string
+#  discNumber      :integer
+#  durationMS      :integer
+#  explicit        :boolean
+#  title           :string
+#  popularity      :integer
+#  trackNumber     :integer
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  spotifyID: MyString
+  spotifyAlbumID: MyString
+  spotifyArtistID: MyString
+  discNumber: 1
+  durationMS: 1
+  explicit: false
+  title: MyString
+  popularity: 1
+  trackNumber: 1
+
+two:
+  spotifyID: MyString
+  spotifyAlbumID: MyString
+  spotifyArtistID: MyString
+  discNumber: 1
+  durationMS: 1
+  explicit: false
+  title: MyString
+  popularity: 1
+  trackNumber: 1

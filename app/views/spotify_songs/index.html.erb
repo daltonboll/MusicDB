@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Spotify Songs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Spotifyid</th>
+      <th>Spotifyalbumid</th>
+      <th>Spotifyartistid</th>
+      <th>Discnumber</th>
+      <th>Durationms</th>
+      <th>Explicit</th>
+      <th>Title</th>
+      <th>Popularity</th>
+      <th>Tracknumber</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @spotify_songs.each do |spotify_song| %>
+      <tr>
+        <td><%= spotify_song.spotifyID %></td>
+        <td><%= spotify_song.spotifyAlbumID %></td>
+        <td><%= spotify_song.spotifyArtistID %></td>
+        <td><%= spotify_song.discNumber %></td>
+        <td><%= spotify_song.durationMS %></td>
+        <td><%= spotify_song.explicit %></td>
+        <td><%= spotify_song.title %></td>
+        <td><%= spotify_song.popularity %></td>
+        <td><%= spotify_song.trackNumber %></td>
+        <td><%= link_to 'Show', spotify_song %></td>
+        <td><%= link_to 'Edit', edit_spotify_song_path(spotify_song) %></td>
+        <td><%= link_to 'Destroy', spotify_song, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Spotify song', new_spotify_song_path %>

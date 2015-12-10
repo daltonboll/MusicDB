@@ -68,6 +68,7 @@ class SpotifyAlbum < ActiveRecord::Base
       end
       sleep(0.2)
     end
-
     return true
+  end
+  
 end

@@ -1,0 +1,53 @@
+<%= form_for(@spotify_song) do |f| %>
+  <% if @spotify_song.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@spotify_song.errors.count, "error") %> prohibited this spotify_song from being saved:</h2>
+
+      <ul>
+      <% @spotify_song.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :spotifyID %><br>
+    <%= f.text_field :spotifyID %>
+  </div>
+  <div class="field">
+    <%= f.label :spotifyAlbumID %><br>
+    <%= f.text_field :spotifyAlbumID %>
+  </div>
+  <div class="field">
+    <%= f.label :spotifyArtistID %><br>
+    <%= f.text_field :spotifyArtistID %>
+  </div>
+  <div class="field">
+    <%= f.label :discNumber %><br>
+    <%= f.number_field :discNumber %>
+  </div>
+  <div class="field">
+    <%= f.label :durationMS %><br>
+    <%= f.number_field :durationMS %>
+  </div>
+  <div class="field">
+    <%= f.label :explicit %><br>
+    <%= f.check_box :explicit %>
+  </div>
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :popularity %><br>
+    <%= f.number_field :popularity %>
+  </div>
+  <div class="field">
+    <%= f.label :trackNumber %><br>
+    <%= f.number_field :trackNumber %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
