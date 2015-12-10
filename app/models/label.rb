@@ -40,4 +40,16 @@ class Label < ActiveRecord::Base
     end
   end
 
+  def self.assign_artists
+    labels = Label.all
+    num_labels = labels.size - 1
+    artists = Artist.all
+
+    artists.each do |artist|
+      label = labels[Random.rand(0..num_labels)]
+      label.artists << artist
+      label.save
+    end
+  end
+
 end

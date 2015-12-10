@@ -6,11 +6,12 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Age</th>
       <th>Popularity</th>
-      <th>Genres</th>
+      <th>Age</th>
       <th>Gender</th>
       <th>Debut Year</th>
+      <th>Label</th>
+      <th>Associated Genres</th>
     </tr>
   </thead>
 
@@ -18,11 +19,12 @@
     <% @artists.each do |artist| %>
       <tr class="clickable-row" data-href="<%= artist_url(artist) %>">
         <td><%= artist.get_truncated_name %></td>
-        <td><%= artist.age %></td>
         <td><%= artist.popularity %></td>
-        <td><%= artist.get_genres %></td>
+        <td><%= artist.age %></td>
         <td><%= artist.gender %></td>
         <td><%= artist.debutYear %></td>
+        <td><%= artist.label.name %></td>
+        <td><%= artist.get_genres %></td>
       </tr>
     <% end %>
   </tbody>
