@@ -9,3 +9,10 @@ $(document).ready( function () {
     	lengthMenu: [100, 75, 50, 25, 10]
     } );
 } );
+
+$(document).ready( function () {
+    $('#artist-albums-table').DataTable( {
+    	scrollY: 400,
+    	paging: false
+    } );
+} );

@@ -23,8 +23,8 @@ class SpotifySong < ActiveRecord::Base
   def self.get_spotify_songs
     RSpotify.authenticate(ENV["SPOTIFY_CLIENT_ID"], ENV["SPOTIFY_CLIENT_SECRET"])
     count = 0
-    max_count = 100
-    current_index = 1755
+    max_count = 20
+    current_index = 2879
     spotify_albums = SpotifyAlbum.where("id >= #{current_index}")
 
     while not spotify_albums.empty?
@@ -34,6 +34,7 @@ class SpotifySong < ActiveRecord::Base
         count = 0
       end
 
+      count += 1
       spotify_albums = SpotifyAlbum.where("id >= #{current_index}").first(20)
       current_index += 20
       ids = []

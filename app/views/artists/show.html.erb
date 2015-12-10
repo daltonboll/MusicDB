@@ -43,7 +43,7 @@
 
 <h2>Albums (<%= @artist.albums.size %>)</h2>
 <% if @artist.albums.size > 0 %>
-  <table id="albums-table">
+  <table id="artist-albums-table">
     <thead>
       <tr>
         <th>Title</th>
@@ -68,7 +68,7 @@
 
 <h2>Songs (<%= @artist.songs.size %>)</h2>
 <% if @artist.songs.size > 0 %>
-  <table id="songs-table">
+  <table id="artist-songs-table">
     <thead>
       <tr>
         <th>Title</th>
@@ -95,5 +95,5 @@
   </table>
 <% end %>
 
-<%= link_to 'Edit', edit_artist_path(@artist) %> |
+<%= link_to 'Edit This Artist', edit_artist_path(@artist) %> |
 <%= link_to 'Back', artists_path %>

@@ -32,7 +32,5 @@
   <%= link_to(@song.get_spotify_id, @song.get_spotify_url, target: "_blank") %>
 </p>
 
-
-
-<%= link_to 'Edit', edit_song_path(@song) %> |
+<%= link_to 'Edit This Song', edit_song_path(@song) %> |
 <%= link_to 'Back', songs_path %>
