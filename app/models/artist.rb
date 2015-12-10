@@ -87,6 +87,27 @@ class Artist < ActiveRecord::Base
     end
   end
 
+  def self.calculate_debut_years
+    artists = Artist.all
+    artists.each do |artist|
+      albums = artist.albums
+      large = 999999999
+      earliest_album = large
+
+      albums.each do |album|
+        debut_year = album.calculate_year.to_i
+        if debut_year != 0 and debut_year < earliest_album
+          earliest_album = debut_year
+        end
+      end
+
+      if earliest_album != large
+        artist.debutYear = earliest_album
+        artist.save
+      end
+    end
+  end
+
   def get_truncated_name
     name = self.name
 
@@ -109,6 +130,16 @@ class Artist < ActiveRecord::Base
     len = genre_text.size
     genre_text = genre_text[0, len-2]
     return genre_text
+  end
+
+  def get_genres_for_bio
+    genre_text = self.get_genres
+
+    if genre_text.size == 0
+      return "No associated genres"
+    else
+      return genre_text
+    end
   end
 
 end

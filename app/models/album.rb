@@ -27,7 +27,6 @@ class Album < ActiveRecord::Base
   validates :spotifyID, uniqueness: true
 
   def self.convert_spotify_data
-    Album.delete_all
     spotify_albums = SpotifyAlbum.all
 
     spotify_albums.each do |s_album|
@@ -45,14 +44,26 @@ class Album < ActiveRecord::Base
       if not artist.nil?
         album_hash = { title: title, genres: genres, images: images, spotifyID: spotifyID, spotifyArtistID: spotifyArtistID, popularity: popularity, releaseDate: releaseDate, albumType: albumType, releaseDatePrecision: releaseDatePrecision }
         album = Album.create(album_hash)
-        album.save
-        artist.albums << album
-        artist.save
+        
+        if album.save
+          artist.albums << album
+          artist.save
+        end
       else 
         puts "WE HAVE NO ARTIST WITH ID #{spotifyArtistID}"
       end
     end
+  end
 
+  def calculate_year
+    date = self.releaseDate
+    precision = self.releaseDatePrecision
+
+    if precision == "year" or precision == "month" or precision == "day"
+      return date[0, 4]
+    else
+      return "N/a"
+    end
   end
 
 end

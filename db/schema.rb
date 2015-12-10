@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151210024255) do
+ActiveRecord::Schema.define(version: 20151210044645) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -110,6 +110,12 @@ ActiveRecord::Schema.define(version: 20151210024255) do
     t.integer  "album_id"
     t.integer  "popularity",          default: 0
     t.string   "spotifyID"
+    t.integer  "discNumber"
+    t.string   "spotifyArtistID"
+    t.string   "spotifyAlbumID"
+    t.integer  "durationMS"
+    t.boolean  "explicit"
+    t.integer  "trackNumber"
   end
 
   add_index "songs", ["album_id"], name: "index_songs_on_album_id", using: :btree

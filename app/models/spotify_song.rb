@@ -31,7 +31,7 @@ class SpotifySong < ActiveRecord::Base
         RSpotify.authenticate(ENV["SPOTIFY_CLIENT_ID"], ENV["SPOTIFY_CLIENT_SECRET"]) # re-authenticate
         count = 0
       end
-      
+
       spotify_artist_id = spotify_album.spotifyArtistID
       spotify_album_id = spotify_album.spotifyID
 
@@ -62,8 +62,8 @@ class SpotifySong < ActiveRecord::Base
               trackNumber = song.track_number
 
               song_hash = { spotifyID: spotifyID, spotifyArtistID: spotifyArtistID, spotifyAlbumID: spotifyAlbumID, discNumber: discNumber, durationMS: durationMS, explicit: explicit, title: title, popularity: popularity, trackNumber: trackNumber }
-              new_album = SpotifyAlbum.create(album_hash)
-              new_album.save
+              new_song = SpotifySong.create(song_hash)
+              new_song.save
             end
           end
         end
