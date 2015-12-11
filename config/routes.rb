@@ -3,7 +3,13 @@ Rails.application.routes.draw do
   resources :spotify_albums
   resources :spotify_artists
   resources :quantone_artists
-  devise_for :users
+
+  if Rails.env.production?
+    devise_for :users, :controllers => { :registrations => "registrations" } 
+  else
+    devise_for :users
+  end
+  
   resources :awards
   resources :albums
   resources :labels
