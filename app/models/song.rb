@@ -184,4 +184,72 @@ class Song < ActiveRecord::Base
     end
   end
 
+  def self.generate_billboard_peaks
+    list_of_peaks = (1..100).to_a
+    num_peaks = list_of_peaks.size - 1
+    songs = Song.all
+
+    songs.each do |song|
+      peak = list_of_peaks[Random.rand(0..num_peaks)]
+      song.billboardHot100Peak = peak
+      song.save
+    end
+  end
+
+  def self.generate_data
+    songs = Song.all
+    songs.each do |song|
+      radioPlayPeak = Song.generate_radio_peak
+      spotifyStreams = Song.generate_spotify_streams
+      amountSold = Song.generate_sales
+      isSingle = Song.generate_is_single
+      hasMusicVideo = Song.generate_has_music_video
+
+      song.radioPlayPeak = radioPlayPeak
+      song.spotifyStreams = spotifyStreams
+      song.amountSold = amountSold
+      song.isSingle = isSingle
+      song.hasMusicVideo = hasMusicVideo
+
+      song.save
+    end
+  end
+
+  def self.generate_radio_peak
+    list_of_peaks = (1..100).to_a
+    num_peaks = list_of_peaks.size - 1
+    peak = list_of_peaks[Random.rand(0..num_peaks)]
+    return peak
+  end
+
+  def self.generate_spotify_streams
+    list_of_streams = (1..250).to_a
+    num_streams = list_of_streams.size - 1
+    weight = 1000000
+    streams = list_of_streams[Random.rand(0..num_streams)] * weight
+    return streams
+  end
+
+  def self.generate_sales
+    list_of_sales = (1..250).to_a
+    num_sales = list_of_sales.size - 1
+    weight = 10000
+    sales = list_of_sales[Random.rand(0..num_sales)] * weight
+    return sales
+  end
+
+  def self.generate_is_single
+    options = [false, false, true, false, false]
+    num_options = options.size - 1
+    option = options[Random.rand(0..num_options)]
+    return option
+  end
+
+  def self.generate_has_music_video
+    options = [false, false, true, false, false]
+    num_options = options.size - 1
+    option = options[Random.rand(0..num_options)]
+    return option
+  end
+
 end

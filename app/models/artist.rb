@@ -292,4 +292,29 @@ class Artist < ActiveRecord::Base
     end
   end
 
+  def self.generate_home_regions
+    list_of_regions = ["United States", "France", "Canada", "Australia", "Germany", "Austria", "Chile", "Argentina", "England", "Russia", "Egypt", "South Africa"]
+    num_regions = list_of_regions.size - 1
+    artists = Artist.all
+
+    artists.each do |artist|
+      region = list_of_regions[Random.rand(0..num_regions)]
+      artist.homeRegion = region
+      artist.save
+    end
+  end
+
+  def self.generate_races
+    list_of_races = ["Indian American", "White", "African American", "Asian", "Pacific Islander"]
+    num_races = list_of_races.size - 1
+    artists = Artist.all
+
+    artists.each do |artist|
+      race = list_of_races[Random.rand(0..num_races)]
+      artist.race = race
+      artist.save
+    end
+  end
+
+
 end

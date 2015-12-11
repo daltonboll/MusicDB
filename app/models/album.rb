@@ -212,4 +212,47 @@ class Album < ActiveRecord::Base
     return list_of_options
   end
 
+  def self.generate_sales
+    list_of_sales = (1..250).to_a
+    num_sales = list_of_sales.size - 1
+    weight = 10000
+    sales = list_of_sales[Random.rand(0..num_sales)] * weight
+    return sales
+  end
+
+  def self.generate_billboard_200_peak
+    list_of_peaks = (1..200).to_a
+    num_peaks = list_of_peaks.size - 1
+    peak = list_of_peaks[Random.rand(0..num_peaks)]
+    return peak
+  end
+
+  def self.generate_data
+    albums = Album.all
+    albums.each do |album|
+      amountSold = Album.generate_sales
+      billboard200Peak = Album.generate_billboard_200_peak
+
+      album.amountSold = amountSold
+      album.billboard200Peak = billboard200Peak
+      album.save
+    end
+  end
+
+  def self.generate_number_of_singles
+    albums = Album.all
+    albums.each do |album|
+      songs = album.songs
+      num_singles = 0
+      singles = songs.where(isSingle: true)
+
+      if not singles.nil?
+        num_singles = singles.size
+      end
+
+      album.numberOfSingles = num_singles
+      album.save
+    end
+  end
+
 end
