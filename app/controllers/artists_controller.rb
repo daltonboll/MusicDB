@@ -24,10 +24,27 @@ class ArtistsController < ApplicationController
   # POST /artists
   # POST /artists.json
   def create
+    genres = params["artist"]["genres"]
+
+    if not genres.nil? and genres.is_a? String
+      genres = genres.split(", ")
+      params["artist"][:genres] = genres
+    end
+
     @artist = Artist.new(artist_params)
 
     respond_to do |format|
       if @artist.save
+        label_id = params["label"]
+        
+        if not label_id.nil?
+          label = Label.find_by(id: label_id)
+          if not label.nil?
+            label.artists << @artist
+            label.save
+          end
+        end
+        
         format.html { redirect_to @artist, notice: 'Artist was successfully created.' }
         format.json { render :show, status: :created, location: @artist }
       else
@@ -41,7 +58,24 @@ class ArtistsController < ApplicationController
   # PATCH/PUT /artists/1.json
   def update
     respond_to do |format|
+      genres = params["artist"]["genres"]
+
+      if not genres.nil? and genres.is_a? String
+        genres = genres.split(", ")
+        params["artist"][:genres] = genres
+      end
+
       if @artist.update(artist_params)
+        label_id = params["label"]
+        
+        if not label_id.nil?
+          label = Label.find_by(id: label_id)
+          if not label.nil?
+            label.artists << @artist
+            label.save
+          end
+        end
+
         format.html { redirect_to @artist, notice: 'Artist was successfully updated.' }
         format.json { render :show, status: :ok, location: @artist }
       else
@@ -69,6 +103,6 @@ class ArtistsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def artist_params
-      params.require(:artist).permit(:name, :age, :homeCountry, :homeState, :gender, :race, :debutYear)
+      params.require(:artist).permit(:name, :age, :popularity, :spotifyID, :gender, :label, :debutYear, genres: [])
     end
 end

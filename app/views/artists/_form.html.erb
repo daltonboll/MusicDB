@@ -13,31 +13,35 @@
 
   <div class="field">
     <%= f.label :name %><br>
-    <%= f.text_area :name %>
+    <%= f.text_field :name %>
   </div>
   <div class="field">
     <%= f.label :age %><br>
-    <%= f.text_field :age %>
+    <%= f.number_field :age %>
   </div>
   <div class="field">
-    <%= f.label :homeCountry %><br>
-    <%= f.text_area :homeCountry %>
-  </div>
-  <div class="field">
-    <%= f.label :homeState %><br>
-    <%= f.text_area :homeState %>
+    <%= f.label :popularity %><br>
+    <%= f.number_field :popularity %>
   </div>
   <div class="field">
     <%= f.label :gender %><br>
-    <%= f.text_area :gender %>
+    <%= f.text_field :gender %>
   </div>
   <div class="field">
-    <%= f.label :race %><br>
-    <%= f.text_area :race %>
+    <%= f.label "Debut Year" %><br>
+    <%= f.number_field :debutYear %>
   </div>
   <div class="field">
-    <%= f.label :debutYear %><br>
-    <%= f.text_field :debutYear %>
+    <%= f.label "Genres (of the form genre1, genre2, genre3)" %><br>
+    <%= f.text_field :genres %>
+  </div>
+  <div class="field">
+    <%= f.label "Spotify ID" %><br>
+    <%= f.text_field :spotifyID %>
+  </div>
+  <div class="field">
+    <%= f.label "Label" %><br>
+    <%= select_tag(:label, options_for_select(Label.get_select_field_list())) %>
   </div>
   <div class="actions">
     <%= f.submit %>

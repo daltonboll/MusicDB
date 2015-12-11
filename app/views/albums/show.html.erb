@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Album: <%= @album.title %> by <%= link_to(@album.artist.name, artist_url(@album.artist)) %></h1>
+<h1>Album: <%= @album.title %> by <%= link_to(@album.get_artist_name, artist_url(@album.get_artist_id)) %></h1>
 <div class="album-images">
     <img class="album-image" src="<%= @album.images.first %>"/>
 </div>

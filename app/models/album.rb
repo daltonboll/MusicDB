@@ -176,4 +176,26 @@ class Album < ActiveRecord::Base
     end
   end
 
+  def get_artist_name
+    artist = self.artist
+    name = "N/a"
+
+    if not artist.nil? and not artist.name.nil?
+      return artist.name
+    end
+
+    return name
+  end
+
+  def get_artist_id
+    artist = self.artist
+    id = "#"
+
+    if not artist.nil?
+      return artist.id
+    end
+
+    return id
+  end
+
 end

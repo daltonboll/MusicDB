@@ -28,6 +28,16 @@ class AwardsController < ApplicationController
 
     respond_to do |format|
       if @award.save
+        artist_id = params["artist"]
+        
+        if not artist_id.nil?
+          artist = Artist.find_by(id: artist_id)
+          if not artist.nil?
+            artist.awards << @award
+            artist.save
+          end
+        end
+        
         format.html { redirect_to @award, notice: 'Award was successfully created.' }
         format.json { render :show, status: :created, location: @award }
       else
@@ -42,6 +52,16 @@ class AwardsController < ApplicationController
   def update
     respond_to do |format|
       if @award.update(award_params)
+        artist_id = params["artist"]
+        
+        if not artist_id.nil?
+          artist = Artist.find_by(id: artist_id)
+          if not artist.nil?
+            artist.awards << @award
+            artist.save
+          end
+        end
+
         format.html { redirect_to @award, notice: 'Award was successfully updated.' }
         format.json { render :show, status: :ok, location: @award }
       else
@@ -69,6 +89,6 @@ class AwardsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def award_params
-      params.require(:award).permit(:title, :event, :dateAwarded)
+      params.require(:award).permit(:title, :event, :yearAwarded, :artist)
     end
 end

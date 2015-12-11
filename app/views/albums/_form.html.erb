@@ -13,27 +13,31 @@
 
   <div class="field">
     <%= f.label :title %><br>
-    <%= f.text_area :title %>
+    <%= f.text_field :title %>
   </div>
   <div class="field">
-    <%= f.label :releaseDate %><br>
+    <%= f.label "Release Date" %><br>
     <%= f.text_field :releaseDate %>
   </div>
   <div class="field">
-    <%= f.label :genre %><br>
-    <%= f.text_area :genre %>
+    <%= f.label "Genres (of the form genre1, genre2, genre3)" %><br>
+    <%= f.text_field :genres %>
   </div>
   <div class="field">
-    <%= f.label :amountSold %><br>
-    <%= f.text_field :amountSold %>
+    <%= f.label :popularity %><br>
+    <%= f.number_field :popularity %>
   </div>
   <div class="field">
-    <%= f.label :billboard200Peak %><br>
-    <%= f.text_field :billboard200Peak %>
+    <%= f.label "Album Type" %><br>
+    <%= f.text_field :albumType %>
   </div>
   <div class="field">
-    <%= f.label :numberOfSingles %><br>
-    <%= f.text_field :numberOfSingles %>
+    <%= f.label "Spotify ID" %><br>
+    <%= f.text_field :spotifyID %>
+  </div>
+  <div class="field">
+    <%= f.label "Artist" %><br>
+    <%= select_tag(:artist, options_for_select(Artist.get_select_field_list())) %>
   </div>
   <div class="actions">
     <%= f.submit %>

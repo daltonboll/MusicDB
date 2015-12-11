@@ -3,4 +3,5 @@
 <%= render 'form' %>
 
 <%= link_to 'Show', @award %> |
-<%= link_to 'Back', awards_path %>
+<%= link_to 'Back', awards_path %> |
+<%= link_to 'Delete', award_path(@award), data: { confirm: 'Are you sure?' }, method: :delete %>

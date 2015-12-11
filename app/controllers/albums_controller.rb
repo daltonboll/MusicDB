@@ -24,10 +24,27 @@ class AlbumsController < ApplicationController
   # POST /albums
   # POST /albums.json
   def create
+    genres = params["album"]["genres"]
+
+    if not genres.nil? and genres.is_a? String
+      genres = genres.split(", ")
+      params["album"][:genres] = genres
+    end
+
     @album = Album.new(album_params)
 
     respond_to do |format|
       if @album.save
+        artist_id = params["artist"]
+        
+        if not artist_id.nil?
+          artist = Artist.find_by(id: artist_id)
+          if not artist.nil?
+            artist.albums << @album
+            artist.save
+          end
+        end
+        
         format.html { redirect_to @album, notice: 'Album was successfully created.' }
         format.json { render :show, status: :created, location: @album }
       else
@@ -41,7 +58,24 @@ class AlbumsController < ApplicationController
   # PATCH/PUT /albums/1.json
   def update
     respond_to do |format|
+      genres = params["album"]["genres"]
+
+      if not genres.nil? and genres.is_a? String
+        genres = genres.split(", ")
+        params["album"][:genres] = genres
+      end
+
       if @album.update(album_params)
+        artist_id = params["artist"]
+        
+        if not artist_id.nil?
+          artist = Artist.find_by(id: artist_id)
+          if not artist.nil?
+            artist.albums << @album
+            artist.save
+          end
+        end
+
         format.html { redirect_to @album, notice: 'Album was successfully updated.' }
         format.json { render :show, status: :ok, location: @album }
       else
@@ -69,6 +103,6 @@ class AlbumsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def album_params
-      params.require(:album).permit(:title, :releaseDate, :genre, :amountSold, :billboard200Peak, :numberOfSingles)
+      params.require(:album).permit(:title, :releaseDate, :popularity, :albumType, :spotifyID, :artist, genres: [])
     end
 end

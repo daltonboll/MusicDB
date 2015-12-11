@@ -52,4 +52,17 @@ class Label < ActiveRecord::Base
     end
   end
 
+  def self.get_select_field_list
+    labels = Label.order(:name)
+    list_of_options = []
+
+    labels.each do |label|
+      name = label.name
+      id = label.id
+      list_of_options.append([name, id])
+    end
+
+    return list_of_options
+  end
+
 end
