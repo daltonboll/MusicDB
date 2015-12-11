@@ -175,4 +175,13 @@ class Song < ActiveRecord::Base
     end
   end
 
+  def get_album_id
+    album = self.album
+    if not album.nil?
+      return album.id
+    else
+      return -1
+    end
+  end
+
 end

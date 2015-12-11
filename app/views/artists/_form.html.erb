@@ -41,7 +41,7 @@
   </div>
   <div class="field">
     <%= f.label "Label" %><br>
-    <%= select_tag(:label, options_for_select(Label.get_select_field_list())) %>
+    <%= select_tag(:label, options_for_select(Label.get_select_field_list(), @artist.get_label_id)) %>
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -283,4 +283,13 @@ class Artist < ActiveRecord::Base
     return list_of_options
   end
 
+  def get_label_id
+    label = self.label
+    if not lable.nil?
+      return label.id
+    else
+      return -1
+    end
+  end
+
 end

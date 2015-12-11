@@ -41,7 +41,8 @@
   </div>
   <div class="field">
     <%= f.label "Album" %><br>
-    <%= select_tag(:album, options_for_select(Album.get_select_field_list())) %>
+    <% puts "SONG ALBUM ID = #{@song.get_album_id}" %>
+    <%= select_tag(:album, options_for_select(Album.get_select_field_list(), @song.get_album_id)) %>
   </div>
   <div class="actions">
     <%= f.submit %>

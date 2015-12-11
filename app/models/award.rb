@@ -92,4 +92,13 @@ class Award < ActiveRecord::Base
     end
   end
 
+  def get_artist_id
+    artist = self.artist
+    if not artist.nil?
+      return artist.id
+    else
+      return -1
+    end
+  end
+
 end
