@@ -13,21 +13,21 @@
 
   <div class="field">
     <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>s
+    <%= f.text_field :title, class: :styled_input %>
+  </div>
   <div class="field">
     <%= f.label :event %><br>
-    <%= f.text_field :event %>
+    <%= f.text_field :event, class: :styled_input %>
   </div>
   <div class="field">
     <%= f.label "Year Awarded" %><br>
-    <%= f.number_field :yearAwarded %>
+    <%= f.number_field :yearAwarded, class: :styled_input %>
   </div>
   <div class="field">
     <%= f.label "Artist" %><br>
-    <%= select_tag(:artist, options_for_select(Artist.get_select_field_list(), @award.get_artist_id)) %>
+    <%= select_tag(:artist, options_for_select(Artist.get_select_field_list(), @award.get_artist_id), class: :styled_input) %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit(class: "pretty_button") %>
   </div>
 <% end %>

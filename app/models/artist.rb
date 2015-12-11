@@ -285,7 +285,7 @@ class Artist < ActiveRecord::Base
 
   def get_label_id
     label = self.label
-    if not lable.nil?
+    if not label.nil?
       return label.id
     else
       return -1

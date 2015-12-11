@@ -115,3 +115,52 @@ td {
 	max-width: 300px;
 	margin: 10px;
 }
+
+input {
+	margin-bottom: 12px;
+	magin-top: 12px;
+}
+
+.pretty_button {
+	margin-top: 20px;
+	border-radius: 3px 3px 3px 3px;
+	color: white;
+	background-color: #EE6123;
+	padding-top: 12px;
+	padding-bottom: 12px;
+	padding-left: 22px;
+	padding-right: 22px;
+	font-size: 20px;
+	line-height: 21px;
+	display: inline-block;
+	box-shadow: 0 0 0 1px #ee6123;
+	border: 0;
+	-webkit-appearance: none;
+	outline: 0;
+}
+
+.pretty_button:hover {
+	background-color: #f7733b;
+	cursor: pointer;
+	cursor: hand;
+}
+
+.styled_input {
+	height: 30px;
+	min-width: 300px;
+	max-width: 750px;
+	font-size: 20.28px;
+	border-radius: 3px 0px 0px 3px;
+	border-width: 0px;
+	box-shadow: 0 0 0 1px rgba(0,0,0,0.2);
+	-webkit-appearance: none;
+	padding-left: 15px;
+	color: #A3AAAE;
+}
+
+.styled_input:focus {
+	outline: 0;
+    color: #ee6123;
+    background-color: #fef7f4;
+    box-shadow: 0 0 0 1px rgba(238,97,35,.75),0 0 4px 2px rgba(238,97,35,.2),inset 0 1px 2px 0 rgba(238,97,35,.2);
+}

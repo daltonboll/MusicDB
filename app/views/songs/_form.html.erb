@@ -13,15 +13,15 @@
 
   <div class="field">
     <%= f.label :title %><br>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, class: :styled_input %>
   </div>
   <div class="field">
     <%= f.label :popularity %><br>
-    <%= f.number_field :popularity %>
+    <%= f.number_field :popularity, class: :styled_input %>
   </div>
   <div class="field">
     <%= f.label "Track Number" %><br>
-    <%= f.number_field :trackNumber %>
+    <%= f.number_field :trackNumber, class: :styled_input %>
   </div>
   <div class="field">
     <%= f.label "Explicit?" %><br>
@@ -29,22 +29,22 @@
   </div>
   <div class="field">
     <%= f.label "Disc Number" %><br>
-    <%= f.number_field :discNumber %>
+    <%= f.number_field :discNumber, class: :styled_input %>
   </div>
   <div class="field">
     <%= f.label "Duration (in milliseconds)" %><br>
-    <%= f.number_field :durationMS %>
+    <%= f.number_field :durationMS, class: :styled_input %>
   </div>
   <div class="field">
     <%= f.label "Spotify ID" %><br>
-    <%= f.text_field :spotifyID %>
+    <%= f.text_field :spotifyID, class: :styled_input %>
   </div>
   <div class="field">
     <%= f.label "Album" %><br>
     <% puts "SONG ALBUM ID = #{@song.get_album_id}" %>
-    <%= select_tag(:album, options_for_select(Album.get_select_field_list(), @song.get_album_id)) %>
+    <%= select_tag(:album, options_for_select(Album.get_select_field_list(), @song.get_album_id), class: :styled_input) %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit(class: "pretty_button") %>
   </div>
 <% end %>

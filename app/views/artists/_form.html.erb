@@ -13,37 +13,37 @@
 
   <div class="field">
     <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, class: :styled_input %>
   </div>
   <div class="field">
     <%= f.label :age %><br>
-    <%= f.number_field :age %>
+    <%= f.number_field :age, class: :styled_input %>
   </div>
   <div class="field">
     <%= f.label :popularity %><br>
-    <%= f.number_field :popularity %>
+    <%= f.number_field :popularity, class: :styled_input %>
   </div>
   <div class="field">
     <%= f.label :gender %><br>
-    <%= f.text_field :gender %>
+    <%= f.text_field :gender, class: :styled_input %>
   </div>
   <div class="field">
     <%= f.label "Debut Year" %><br>
-    <%= f.number_field :debutYear %>
+    <%= f.number_field :debutYear, class: :styled_input %>
   </div>
   <div class="field">
     <%= f.label "Genres (of the form genre1, genre2, genre3)" %><br>
-    <%= f.text_field :genres %>
+    <%= f.text_field :genres, class: :styled_input %>
   </div>
   <div class="field">
     <%= f.label "Spotify ID" %><br>
-    <%= f.text_field :spotifyID %>
+    <%= f.text_field :spotifyID, class: :styled_input %>
   </div>
   <div class="field">
     <%= f.label "Label" %><br>
-    <%= select_tag(:label, options_for_select(Label.get_select_field_list(), @artist.get_label_id)) %>
+    <%= select_tag(:label, options_for_select(Label.get_select_field_list(), @artist.get_label_id), class: :styled_input) %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit(class: "pretty_button") %>
   </div>
 <% end %>
