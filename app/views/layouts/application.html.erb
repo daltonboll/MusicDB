@@ -36,6 +36,8 @@
   </header>
 
   <div class="content">
+    <%= flash[:message] %>
+    <%= flash[:info] %>
     <%= yield %>
   </div>
 
