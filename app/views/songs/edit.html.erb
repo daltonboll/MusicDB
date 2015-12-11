@@ -3,4 +3,5 @@
 <%= render 'form' %>
 
 <%= link_to 'Show', @song %> |
-<%= link_to 'Back', songs_path %>
+<%= link_to 'Back', songs_path %> |
+<%= link_to 'Delete', song_path(@song), data: { confirm: 'Are you sure?' }, method: :delete %>

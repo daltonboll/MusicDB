@@ -28,6 +28,26 @@ class SongsController < ApplicationController
 
     respond_to do |format|
       if @song.save
+        album_id = params["album"]
+        
+        if not album_id.nil?
+          album = Album.find_by(id: album_id)
+          if not album.nil?
+            album.songs << @song
+            album.save
+
+            artist = album.artist
+
+            if not artist.nil?
+              artist_id = artist.id
+              if not artist_id.nil?
+                artist.songs << @song
+                artist.save
+              end
+            end
+          end
+        end
+
         format.html { redirect_to @song, notice: 'Song was successfully created.' }
         format.json { render :show, status: :created, location: @song }
       else
@@ -42,6 +62,26 @@ class SongsController < ApplicationController
   def update
     respond_to do |format|
       if @song.update(song_params)
+        album_id = params["album"]
+        
+        if not album_id.nil?
+          album = Album.find_by(id: album_id)
+          if not album.nil?
+            album.songs << @song
+            album.save
+
+            artist = album.artist
+
+            if not artist.nil?
+              artist_id = artist.id
+              if not artist_id.nil?
+                artist.songs << @song
+                artist.save
+              end
+            end
+          end
+        end
+        
         format.html { redirect_to @song, notice: 'Song was successfully updated.' }
         format.json { render :show, status: :ok, location: @song }
       else
@@ -56,7 +96,7 @@ class SongsController < ApplicationController
   def destroy
     @song.destroy
     respond_to do |format|
-      format.html { redirect_to songs_url, notice: 'Song was successfully destroyed.' }
+      format.html { redirect_to root_url, notice: 'Song was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +109,6 @@ class SongsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def song_params
-      params.require(:song).permit(:title, :billboardHot100Peak, :radioPlayPeak, :spotifyStreams, :hasMusicVideo, :isSingle, :amountSold)
+      params.require(:song).permit(:title, :explicit, :trackNumber, :discNumber, :spotifyID, :album, :durationMS, :popularity)
     end
 end

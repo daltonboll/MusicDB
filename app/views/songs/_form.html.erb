@@ -13,31 +13,35 @@
 
   <div class="field">
     <%= f.label :title %><br>
-    <%= f.text_area :title %>
+    <%= f.text_field :title %>
   </div>
   <div class="field">
-    <%= f.label :billboardHot100Peak %><br>
-    <%= f.text_field :billboardHot100Peak %>
+    <%= f.label :popularity %><br>
+    <%= f.number_field :popularity %>
   </div>
   <div class="field">
-    <%= f.label :radioPlayPeak %><br>
-    <%= f.text_field :radioPlayPeak %>
+    <%= f.label "Track Number" %><br>
+    <%= f.number_field :trackNumber %>
   </div>
   <div class="field">
-    <%= f.label :spotifyStreams %><br>
-    <%= f.text_field :spotifyStreams %>
+    <%= f.label "Explicit?" %><br>
+    <%= f.check_box :explicit %>
   </div>
   <div class="field">
-    <%= f.label :hasMusicVideo %><br>
-    <%= f.check_box :hasMusicVideo %>
+    <%= f.label "Disc Number" %><br>
+    <%= f.number_field :discNumber %>
   </div>
   <div class="field">
-    <%= f.label :isSingle %><br>
-    <%= f.check_box :isSingle %>
+    <%= f.label "Duration (in milliseconds)" %><br>
+    <%= f.number_field :durationMS %>
   </div>
   <div class="field">
-    <%= f.label :amountSold %><br>
-    <%= f.text_field :amountSold %>
+    <%= f.label "Spotify ID" %><br>
+    <%= f.text_field :spotifyID %>
+  </div>
+  <div class="field">
+    <%= f.label "Album" %><br>
+    <%= select_tag(:album, options_for_select(Album.get_select_field_list())) %>
   </div>
   <div class="actions">
     <%= f.submit %>

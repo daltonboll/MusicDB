@@ -85,7 +85,7 @@ class Song < ActiveRecord::Base
   def get_track_number
     track_number = self.trackNumber
 
-    if track_number.size.nil?
+    if track_number.nil?
       return 0
     else
       return track_number

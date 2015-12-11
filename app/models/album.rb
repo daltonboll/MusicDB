@@ -198,4 +198,18 @@ class Album < ActiveRecord::Base
     return id
   end
 
+  def self.get_select_field_list
+    albums = Album.order(:title)
+    list_of_options = []
+
+    albums.each do |album|
+      title = album.title
+      artist = album.get_artist_name
+      id = album.id
+      list_of_options.append([title + " by " + artist, id])
+    end
+
+    return list_of_options
+  end
+
 end
