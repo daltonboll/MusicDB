@@ -270,4 +270,17 @@ class Artist < ActiveRecord::Base
     end
   end
 
+  def self.get_select_field_list
+    artists = Artist.order(:name)
+    list_of_options = []
+
+    artists.each do |artist|
+      name = artist.name
+      id = artist.id
+      list_of_options.append([name, id])
+    end
+
+    return list_of_options
+  end
+
 end
