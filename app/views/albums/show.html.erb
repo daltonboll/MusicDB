@@ -42,6 +42,8 @@
         <th>Explicit</th>
         <th>Duration</th>
         <th>Disc #</th>
+        <th>Single?</th>
+        <th>Sales</th>
       </tr>
     </thead>
 
@@ -54,6 +56,8 @@
           <td><%= song.get_explicit %></td>
           <td><%= song.get_duration %></td>
           <td><%= song.get_disc_number %></td>
+          <td><%= song.isSingle %> </td>
+          <td><%= song.amountSold %></td>
         </tr>
       <% end %>
     </tbody>

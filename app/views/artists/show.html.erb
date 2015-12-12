@@ -50,6 +50,7 @@
         <th>Popularity</th>
         <th>Release Date</th>
         <th>Number of Songs</th>
+        <th>Sales</th>
       </tr>
     </thead>
 
@@ -60,6 +61,7 @@
           <td><%= album.get_popularity %></td>
           <td><%= album.get_release_date %></td>
           <td><%= album.songs.size %></td>
+          <td><%= album.amountSold %></td>
         </tr>
       <% end %>
     </tbody>
