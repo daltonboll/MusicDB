@@ -13,6 +13,26 @@
 </p>
 
 <p>
+  <strong>Billboard Hot 100 Peak:</strong>
+  <%= @song.billboardHot100Peak %>
+</p>
+
+<p>
+  <strong>Spotify Streams:</strong>
+  <%= @song.spotifyStreams %>
+</p>
+
+<p>
+  <strong>Sales:</strong>
+  <%= @song.amountSold %>
+</p>
+
+<p>
+  <strong>Radio Play Peak:</strong>
+  <%= @song.radioPlayPeak %>
+</p>
+
+<p>
   <strong>Album Title:</strong>
   <%= link_to(@song.album.title, @song.album) %>
 </p>
@@ -35,6 +55,16 @@
 <p>
   <strong>Explicit?</strong>
   <%= @song.get_explicit %>
+</p>
+
+<p>
+  <strong>Single?</strong>
+  <%= @song.get_is_single %>
+</p>
+
+<p>
+  <strong>Has a Music Video?</strong>
+  <%= @song.get_has_music_video %>
 </p>
 
 <p>

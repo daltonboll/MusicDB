@@ -2,11 +2,19 @@
 
 <h1>All Songs</h1>
 
+<% if Rails.env.production? %>
+  <p>NOTE: Only displaying 5000 random songs on Heroku due to database limitations. There are actually more than 54,000 songs.</p>
+<% end %>
+
 <table id="songs-table">
   <thead>
     <tr>
       <th>Title</th>
       <th>Popularity</th>
+      <th>Sales</th>
+      <th>Spotify Streams</th>
+      <th>Peak</th>
+      <th>Radio Play</th>
       <th>Artist</th>
       <th>Album</th>
       <th>Release Date</th>
@@ -16,10 +24,14 @@
   </thead>
 
   <tbody>
-    <% @songs.each do |song| %>
+    <% Song.get_all_songs.each do |song| %>
       <tr class="clickable-row" data-href="<%= song_url(song) %>">
         <td><%= link_to(song.get_truncated_title, song_url(song)) %></td>
         <td><%= song.get_popularity %></td>
+        <td><%= song.amountSold %></td>
+        <td><%= song.spotifyStreams %></td>
+        <td><%= song.billboardHot100Peak %></td>
+        <td><%= song.radioPlayPeak %></td>
         <td><%= link_to(song.artist.get_truncated_name, artist_url(song.artist)) %></td>
         <td><%= link_to(song.album.get_truncated_title, album_url(song.album)) %></td>
         <td><%= song.get_release_date %></td>

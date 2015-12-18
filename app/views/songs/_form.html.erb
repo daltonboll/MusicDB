@@ -20,12 +20,36 @@
     <%= f.number_field :popularity, class: :styled_input %>
   </div>
   <div class="field">
+    <%= f.label "Billboard Hot 100 Peak" %><br>
+    <%= f.number_field :billboardHot100Peak, class: :styled_input %>
+  </div>
+  <div class="field">
+    <%= f.label "Spotify Streams" %><br>
+    <%= f.number_field :spotifyStreams, class: :styled_input %>
+  </div>
+  <div class="field">
+    <%= f.label :sales %><br>
+    <%= f.number_field :amountSold, class: :styled_input %>
+  </div>
+  <div class="field">
+    <%= f.label "Radio Play Peak" %><br>
+    <%= f.number_field :radioPlayPeak, class: :styled_input %>
+  </div>
+  <div class="field">
     <%= f.label "Track Number" %><br>
     <%= f.number_field :trackNumber, class: :styled_input %>
   </div>
   <div class="field">
     <%= f.label "Explicit?" %><br>
     <%= f.check_box :explicit %>
+  </div>
+  <div class="field">
+    <%= f.label "Is a Single?" %><br>
+    <%= f.check_box :isSingle %>
+  </div>
+  <div class="field">
+    <%= f.label "Has a Music Video?" %><br>
+    <%= f.check_box :hasMusicVideo %>
   </div>
   <div class="field">
     <%= f.label "Disc Number" %><br>

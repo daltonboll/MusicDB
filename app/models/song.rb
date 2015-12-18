@@ -30,6 +30,14 @@ class Song < ActiveRecord::Base
   belongs_to :artist # A Song belongs to an Artist
   belongs_to :album # A slong belongs to an Album
   validates :spotifyID, uniqueness: true
+  validates :billboardHot100Peak, numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: 100 }
+  validates :radioPlayPeak, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  validates :spotifyStreams, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  validates :amountSold, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  validates :popularity, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  validates :discNumber, numericality: { only_integer: true, greater_than_or_equal_to: 1 }
+  validates :durationMS, numericality: { only_integer: true, greater_than_or_equal_to: 1 }
+  validates :trackNumber, numericality: { only_integer: true, greater_than_or_equal_to: 1 }
 
   def self.convert_spotify_data
     spotify_songs = SpotifySong.all
@@ -126,6 +134,26 @@ class Song < ActiveRecord::Base
     explicit = self.explicit
 
     if explicit
+      return "Yes"
+    else
+      return "No"
+    end
+  end
+
+  def get_is_single
+    isSingle = self.isSingle
+
+    if isSingle
+      return "Yes"
+    else
+      return "No"
+    end
+  end
+
+  def get_has_music_video
+    has_music_video = self.hasMusicVideo
+
+    if has_music_video
       return "Yes"
     else
       return "No"
@@ -250,6 +278,14 @@ class Song < ActiveRecord::Base
     num_options = options.size - 1
     option = options[Random.rand(0..num_options)]
     return option
+  end
+
+  def self.get_all_songs
+    if Rails.env.production?
+      return Song.limit(5000).order("RANDOM()")
+    else
+      return Song.all
+    end
   end
 
 end
