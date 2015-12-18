@@ -28,6 +28,18 @@
     <%= f.number_field :popularity, class: :styled_input %>
   </div>
   <div class="field">
+    <%= f.label :sales %><br>
+    <%= f.number_field :amountSold, class: :styled_input %>
+  </div>
+  <div class="field">
+    <%= f.label "Billboard 200 Peak" %><br>
+    <%= f.number_field :billboard200Peak, class: :styled_input %>
+  </div>
+  <div class="field">
+    <%= f.label "Number of Singles" %><br>
+    <%= f.number_field :numberOfSingles, class: :styled_input %>
+  </div>
+  <div class="field">
     <%= f.label "Album Type" %><br>
     <%= f.text_field :albumType, class: :styled_input %>
   </div>

@@ -12,6 +12,16 @@
 </p>
 
 <p>
+  <strong>Sales:</strong>
+  <%= @album.amountSold %>
+</p>
+
+<p>
+  <strong>Billboard 200 Peak:</strong>
+  <%= @album.billboard200Peak %>
+</p>
+
+<p>
   <strong>Release Date:</strong>
   <%= @album.get_release_date %>
 </p>
@@ -24,6 +34,11 @@
 <p>
   <strong>Album Type:</strong>
   <%= @album.get_album_type %>
+</p>
+
+<p>
+  <strong>Number of Singles:</strong>
+  <%= @album.numberOfSingles %>
 </p>
 
 <p>

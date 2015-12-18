@@ -26,6 +26,10 @@ class Album < ActiveRecord::Base
   has_many :songs, dependent: :destroy # An Album has many Songs
   has_many :awards, dependent: :destroy # An Album has many Awards
   validates :spotifyID, :title, uniqueness: true
+  validates :amountSold, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  validates :billboard200Peak, numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: 200 }
+  validates :popularity, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  validates :numberOfSingles, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 
   def self.convert_spotify_data
     spotify_albums = SpotifyAlbum.all
