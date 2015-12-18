@@ -25,6 +25,8 @@ class Artist < ActiveRecord::Base
   has_many :awards, dependent: :destroy # An Artist has many Awards
   validates :name, uniqueness: true
   validates_format_of :name, :with => /\A[A-Za-z0-9 ]*\z/ # must be in english
+  validates :age, numericality: { only_integer: true, greater_than_or_equal_to: 1 }
+  validates :debutYear, numericality: { only_integer: true, greater_than_or_equal_to: 1900 }
 
   def self.convert_quantone_data
     quantone_artists = QuantoneArtist.all
